@@ -1,0 +1,202 @@
+/* Views */
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  font-size: 10px;
+}
+body {
+  background-color: #292929;
+  color: #fff;
+}
+.content {
+  margin: 0 1.5rem;
+}
+@media (min-width: 768px) {
+  .content {
+    margin: 0 3rem;
+  }
+}
+h1,
+h2 {
+  font-family: 'norseregular';
+  text-align: center;
+  margin: 0;
+}
+h1 {
+  font-size: 9rem;
+}
+h2 {
+  font-size: 4rem;
+}
+p {
+  color: #FF5151;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+#start .top-section {
+  height: 100vh;
+  background-image: url('../img/main.png');
+  background-size: cover;
+  background-position: center center;
+}
+/* Components */
+header {
+  position: fixed;
+  width: 100%;
+}
+header .content {
+  overflow: hidden;
+  padding: 1rem 0;
+}
+@media (min-width: 768px) {
+  header .content {
+    padding: 3rem 0;
+  }
+}
+header .content > a {
+  height: 7rem;
+  width: 7rem;
+}
+@media (min-width: 768px) {
+  header .content > a {
+    height: 9rem;
+    width: 9rem;
+  }
+}
+header .content #logo {
+  float: left;
+}
+header .content #logo img {
+  height: 100%;
+  width: 100%;
+}
+header .content #nav-trigger {
+  float: right;
+  box-sizing: border-box;
+  text-align: center;
+}
+header .content #nav-trigger img {
+  width: 80%;
+  margin: 10% 0;
+}
+header .content:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#menu-component {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  background-color: #292929;
+}
+#menu-component img {
+  height: 4rem;
+  width: 4rem;
+  float: right;
+}
+#menu-component img:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#menu-component ul {
+  padding-left: 0;
+  padding-top: 25vh;
+}
+@media (min-width: 768px) {
+  #menu-component ul {
+    width: 40%;
+    margin: 0 auto;
+  }
+}
+#menu-component ul li {
+  opacity: 0;
+  /* make things invisible upon start */
+  -webkit-animation: fadeIn ease-in 1;
+  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  margin: 1rem 0;
+  font-family: 'norseregular';
+  list-style: none;
+  font-size: 5rem;
+  border-bottom: 2px solid #000;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#menu-component ul li:nth-child(1) {
+  -webkit-animation-delay: 210ms;
+  -moz-animation-delay: 210ms;
+  animation-delay: 210ms;
+}
+#menu-component ul li:nth-child(2) {
+  -webkit-animation-delay: 320ms;
+  -moz-animation-delay: 320ms;
+  animation-delay: 320ms;
+}
+#menu-component ul li:nth-child(3) {
+  -webkit-animation-delay: 430ms;
+  -moz-animation-delay: 430ms;
+  animation-delay: 430ms;
+}
+@media (min-width: 768px) {
+  #menu-component ul li {
+    margin: 3rem 0;
+  }
+}
+#menu-component ul li a {
+  display: block;
+  padding: 1rem 0;
+}
+/* Mixins */
+/* Variabels */
+/* Colors */
+/* Fonts */
+@font-face {
+  font-family: 'norsebold';
+  src: url('../fonts/norse-bold-webfont.woff2') format('woff2'), url('../fonts/norse-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'norseregular';
+  src: url('../fonts/norse-webfont.woff2') format('woff2'), url('../fonts/norse-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Break-points */

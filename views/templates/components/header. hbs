@@ -1,0 +1,11 @@
+<header>
+  <div class="content">
+    <a href="#" id="logo">
+      <img src="../img/logo.svg"/>
+    </a>
+    <a href="#" id="nav-trigger">
+      <img src="../img/hamburger.svg"/>
+    </a>
+  </div>
+  {{>menu}}
+</header>

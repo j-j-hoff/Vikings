@@ -1,0 +1,49 @@
+header {
+  position: fixed;
+  width: 100%;
+
+  .content {
+    overflow: hidden;
+    padding: 1rem 0;
+
+    @media (min-width: @screen-sm) {
+      padding: 3rem 0;
+    }
+
+    > a {
+      height: 7rem;
+      width: 7rem;
+
+      @media (min-width: @screen-sm) {
+        height: 9rem;
+        width: 9rem;
+      }
+    }
+
+    #logo {
+      float: left;
+
+      img{
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    #nav-trigger {
+      float: right;
+      box-sizing: border-box;
+      text-align: center;
+
+      img {
+        width: 80%;
+        margin: 10% 0;
+      }
+    }
+
+    &:after{
+      content: " ";
+      display: block; 
+      clear: both;
+    }
+  }
+}
