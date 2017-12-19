@@ -2,6 +2,18 @@ header {
   position: fixed;
   width: 100%;
 
+  input[type=checkbox] {
+    display: none;
+
+    &:checked ~ #menu-component {
+      display: block;
+    }
+  }
+
+  label:hover {
+    cursor: pointer;
+  }
+
   .content {
     overflow: hidden;
     padding: 1rem 0;
@@ -10,7 +22,7 @@ header {
       padding: 3rem 0;
     }
 
-    > a {
+    > a, label {
       height: 7rem;
       width: 7rem;
 
@@ -23,7 +35,7 @@ header {
     #logo {
       float: left;
 
-      img{
+      img {
         height: 100%;
         width: 100%;
       }

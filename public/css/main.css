@@ -42,10 +42,22 @@ a {
   background-size: cover;
   background-position: center center;
 }
+#start .top-section .content {
+  transform: translateY(100%);
+}
 /* Components */
 header {
   position: fixed;
   width: 100%;
+}
+header input[type=checkbox] {
+  display: none;
+}
+header input[type=checkbox]:checked ~ #menu-component {
+  display: block;
+}
+header label:hover {
+  cursor: pointer;
 }
 header .content {
   overflow: hidden;
@@ -56,12 +68,14 @@ header .content {
     padding: 3rem 0;
   }
 }
-header .content > a {
+header .content > a,
+header .content label {
   height: 7rem;
   width: 7rem;
 }
 @media (min-width: 768px) {
-  header .content > a {
+  header .content > a,
+  header .content label {
     height: 9rem;
     width: 9rem;
   }
@@ -88,6 +102,7 @@ header .content:after {
   clear: both;
 }
 #menu-component {
+  display: none;
   position: absolute;
   z-index: 2;
   width: 100%;
@@ -95,15 +110,21 @@ header .content:after {
   top: 0;
   background-color: #292929;
 }
-#menu-component img {
+#menu-component label {
   height: 4rem;
   width: 4rem;
   float: right;
+  margin-top: 1rem;
+  margin-right: 1rem;
 }
-#menu-component img:after {
+#menu-component label:after {
   content: " ";
   display: block;
   clear: both;
+}
+#menu-component label img {
+  width: 100%;
+  height: 100%;
 }
 #menu-component ul {
   padding-left: 0;
