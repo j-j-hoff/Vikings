@@ -31,6 +31,8 @@ h2 {
 }
 p {
   color: #FF5151;
+  font-size: 1.8rem;
+  line-height: 1.4;
 }
 a {
   color: #fff;
@@ -43,7 +45,20 @@ a {
   background-position: center center;
 }
 #start .top-section .content {
-  transform: translateY(100%);
+  transform: translateY(20vh);
+}
+#start .reanactment-section {
+  background-color: #292929;
+  height: 100vh;
+}
+#start .reanactment-section h3 {
+  color: #FF5151;
+  font-size: 5rem;
+  margin-bottom: 0;
+}
+#start .reanactment-section p {
+  color: #fff;
+  margin-top: 0;
 }
 /* Components */
 header {
