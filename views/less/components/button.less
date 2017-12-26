@@ -1,0 +1,26 @@
+.button-component {
+  text-align: center;
+  margin-top: 5rem;
+
+  @media (min-width: @screen-sm) {
+    margin-top: 10rem;
+  }
+
+  a {
+    font-family: @main-font;
+    font-size: 4rem;
+    border: 1px solid @white;
+    padding: 1rem 2rem;
+    background-image: linear-gradient(@main-light, @main-light);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size .5s, color .5s;
+
+    &:hover {
+      cursor: pointer;
+      background-size: 100% 100%;
+      color: #fff;
+    }
+  }
+}

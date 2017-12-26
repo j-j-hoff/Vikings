@@ -1,33 +1,191 @@
 #start {
   .top-section {
     height: 100vh;
-    background-image: url('../img/main.png');
+    background: linear-gradient(to bottom, transparent 50%, black), url('../img/main.png');
     background-size: cover;
     background-position: center center;
 
     .content {
-      transform: translateY(20vh);
+      padding: 0;
+      position: relative;
+      top: 15vh;
+
+      @media (min-width: @screen-sm) {
+        top: 45vh;
+      }
+    }
+
+    img {
+      height: 6rem;
+      width: 6rem;
+      display: block;
+      position: absolute;
+      bottom: 2rem;
+      right: 0;
+      left: 0;
+      margin: auto;
+
+      @keyframes jump {
+        0%, 35%, 43%, 50%, 100% {
+          transform: translateY(0rem);
+        }
+
+        40% { //start 0,4s end 0,2s 
+          transform: translateY(-4rem);
+        }
+
+        46% { //start 0,2s, end 0,15s
+          transform: translateY(-3.5rem);
+        }
+      }
+
+      animation: jump 6s ease-in infinite;
+      animation-delay: 5s;
+
     }
   }
 
   .reanactment-section {
     background-color: @main-dark;
-    height: 100vh;
+    min-height: 100vh;
+
+    .content {
+      @media (min-width: @screen-sm) {
+        width: 50%;
+        margin: 0 auto;
+      }
+    }
+
+    img {
+      display: block;
+      height: 5rem;
+      width: 5rem;
+      margin: 2rem auto 0 auto;
+
+      @media (min-width: @screen-sm) {
+        height: 7rem;
+        width: 7rem;
+        margin-bottom: 8rem;
+      }
+    }
 
     h2 {
-
+      font-size: 5rem;
+      @media (min-width: @screen-sm) {
+        font-size: 6rem;
+      }
     }
 
     h3 {
       color: @red;
       font-size: 5rem;
       margin-bottom: 0;
+      margin-top: 3rem;
+
+      @media (min-width: @screen-sm) {
+        float: left;
+        margin-top: 0;
+        line-height: 1;
+        margin-right: 1rem;
+        font-size: 7rem;
+      }
     }
 
     p {
       color: @white;
       margin-top: 0;
+      
+      @media (min-width: @screen-sm) {
+        &:after{
+          content: " ";
+          display: block; 
+          clear: both;
+        }
+      }
+    }
+  }
+
+  .hire-us-section {
+    min-height: 100vh;
+    text-align: left;
+    background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
+    background-size: cover;
+    background-position: center left;
+    @media (min-width: @screen-sm) {
+      background-position: center center;
+    }
+
+
+    .content {
+      @media (min-width: @screen-sm) {
+        width: 40%;
+        padding-top: 14vh;
+        margin-left: 10%;
+      }
+
+      h2 {
+        text-align: left;
+        margin-bottom: 0;
+        font-size: 6rem;
+      }
+
+      h3 {
+        color: @red;
+        font-size: 3rem;
+        margin-top: 0;
+      }
+
+      p {
+        margin-top: 10vh;
+      }
+    }
+
+    @media (min-width: @screen-sm) {
+      .button-component {
+        text-align: left;
+      }
+    }
+  }
+
+  .join-us-section {
+    background-color: @dark-dark;
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%), 
+    url('../img/aaron.png'), @dark-dark;
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding-top: 10vh;
+
+    @media (min-width: @screen-sm) {
+      background-size: contain;
+    }
+
+    .content {
+      @media (min-width: @screen-sm) {
+        width: 40%;
+        margin-left: 60%;
+        text-align: left;
+      }
+
+      h2 {
+        text-align: left;
+        font-size: 6rem;
+      }
+
+      h3 {
+        color: @red;
+        font-size: 3rem;
+        margin-bottom: 0;
+      }
+    }
+
+    .button-component {
+      margin-top: 5rem;
+    }
+
+    @media (min-width: @screen-sm) {
+      .button-component {
+        text-align: left;
+      }
     }
   }
 }
-
