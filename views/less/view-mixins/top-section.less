@@ -1,0 +1,16 @@
+.top-section () {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, transparent 50%, black), url('../img/main.png');
+  background-size: cover;
+  background-position: center center;
+
+  .content {
+    padding: 0;
+    //position: relative;
+    padding-top: 15vh;
+
+    @media (min-width: @screen-sm) {
+      padding-top: 45vh;
+    }
+  }
+}
