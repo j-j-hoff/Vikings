@@ -8,8 +8,8 @@ app.get('/', (req, res) => {
   res.send(routes.start());
 });
 
-app.get('/info', (req, res) => {
-  res.send(routes.start());
+app.get('/reanactment', (req, res) => {
+  res.send(routes.reanactment());
 });
 
 /*app.all('/*', (req, res) => {

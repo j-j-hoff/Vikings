@@ -1,17 +1,17 @@
 #start {
   .top-section {
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(to bottom, transparent 50%, black), url('../img/main.png');
     background-size: cover;
     background-position: center center;
 
     .content {
       padding: 0;
-      position: relative;
-      top: 15vh;
+      //position: relative;
+      padding-top: 15vh;
 
       @media (min-width: @screen-sm) {
-        top: 45vh;
+        padding-top: 45vh;
       }
     }
 
@@ -51,8 +51,11 @@
 
     .content {
       @media (min-width: @screen-sm) {
-        width: 50%;
+        width: 80%;
         margin: 0 auto;
+      }
+      @media (min-width: @screen-l) {
+        width: 50%;
       }
     }
 
@@ -118,9 +121,13 @@
 
     .content {
       @media (min-width: @screen-sm) {
-        width: 40%;
+        width: 50%;
         padding-top: 14vh;
         margin-left: 10%;
+      }
+
+      @media (min-width: @screen-l) {
+        width: 40%;
       }
 
       h2 {
@@ -160,7 +167,7 @@
     }
 
     .content {
-      @media (min-width: @screen-sm) {
+      @media (min-width: @screen-l) {
         width: 40%;
         margin-left: 60%;
         text-align: left;
@@ -180,10 +187,7 @@
 
     .button-component {
       margin-top: 5rem;
-    }
-
-    @media (min-width: @screen-sm) {
-      .button-component {
+      @media (min-width: @screen-xs) {
         text-align: left;
       }
     }

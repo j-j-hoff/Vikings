@@ -59,19 +59,18 @@ a {
   text-decoration: none;
 }
 #start .top-section {
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to bottom, transparent 50%, black), url('../img/main.png');
   background-size: cover;
   background-position: center center;
 }
 #start .top-section .content {
   padding: 0;
-  position: relative;
-  top: 15vh;
+  padding-top: 15vh;
 }
 @media (min-width: 768px) {
   #start .top-section .content {
-    top: 45vh;
+    padding-top: 45vh;
   }
 }
 #start .top-section img {
@@ -107,8 +106,13 @@ a {
 }
 @media (min-width: 768px) {
   #start .reanactment-section .content {
-    width: 50%;
+    width: 80%;
     margin: 0 auto;
+  }
+}
+@media (min-width: 1200px) {
+  #start .reanactment-section .content {
+    width: 50%;
   }
 }
 #start .reanactment-section img {
@@ -172,9 +176,14 @@ a {
 }
 @media (min-width: 768px) {
   #start .hire-us-section .content {
-    width: 40%;
+    width: 50%;
     padding-top: 14vh;
     margin-left: 10%;
+  }
+}
+@media (min-width: 1200px) {
+  #start .hire-us-section .content {
+    width: 40%;
   }
 }
 #start .hire-us-section .content h2 {
@@ -207,7 +216,7 @@ a {
     background-size: contain;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
   #start .join-us-section .content {
     width: 40%;
     margin-left: 60%;
@@ -226,7 +235,7 @@ a {
 #start .join-us-section .button-component {
   margin-top: 5rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 550px) {
   #start .join-us-section .button-component {
     text-align: left;
   }

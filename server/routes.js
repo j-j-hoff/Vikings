@@ -21,6 +21,11 @@ const start = () => {
   return getView('start')();
 };
 
+const reanactment = () => {
+  return getView('reanactment')();
+};
+
 module.exports = {
-  start
+  start,
+  reanactment
 };
