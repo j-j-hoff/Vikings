@@ -368,6 +368,12 @@ footer:after {
   display: block;
   clear: both;
 }
+#facebook-contact {
+  background: url('../img/facebook-icon.svg');
+}
+#mail-contact {
+  background: url('../img/mail-icon.svg');
+}
 #menu-component {
   display: none;
   position: absolute;
