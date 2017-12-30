@@ -1,3 +1,54 @@
 .text-and-image-section (@side) {
+  background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
+  background-size: cover;
+  background-position: center left;
+  @media (min-width: @screen-sm) {
+    background-position: center center;
+  }
 
+  .content {
+    
+    & when (@side='left') {
+      float: left;
+      margin-left: 10%;
+      text-align: left;
+    }
+
+    & when (@side='right') {
+      float: right;
+      margin-right: 10%;
+      text-align: right;
+    }
+
+    @media (min-width: @screen-sm) {
+      width: 50%;
+      padding-top: 14vh;
+    }
+
+    @media (min-width: @screen-l) {
+      width: 40%;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: 6rem;
+    }
+
+    h3 {
+      color: @red;
+      font-size: 3rem;
+      margin-top: 0;
+    }
+
+    p {
+      margin-top: 10vh;
+      text-align: left;
+    }
+  }
+  
+  &:after{
+    content: " ";
+    display: block; 
+    clear: both;
+  }
 }

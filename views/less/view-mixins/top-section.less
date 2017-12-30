@@ -1,6 +1,6 @@
-.top-section () {
+.top-section (@background-img-url) {
   min-height: 100vh;
-  background: linear-gradient(to bottom, transparent 50%, black), url('../img/main.png');
+  background: linear-gradient(to bottom, transparent 50%, black), url(@background-img-url);
   background-size: cover;
   background-position: center center;
 
@@ -8,6 +8,10 @@
     padding: 0;
     //position: relative;
     padding-top: 15vh;
+
+    h1, h2 {
+      text-align: center;
+    }
 
     @media (min-width: @screen-sm) {
       padding-top: 45vh;

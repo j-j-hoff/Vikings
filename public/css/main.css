@@ -22,7 +22,6 @@ body {
 h1,
 h2 {
   font-family: 'norseregular';
-  text-align: center;
   margin: 0;
 }
 h1 {
@@ -68,6 +67,10 @@ a {
   padding: 0;
   padding-top: 15vh;
 }
+#start .top-section .content h1,
+#start .top-section .content h2 {
+  text-align: center;
+}
 @media (min-width: 768px) {
   #start .top-section .content {
     padding-top: 45vh;
@@ -101,8 +104,8 @@ a {
   }
 }
 #start .reanactment-section {
-  background-color: #292929;
   min-height: 100vh;
+  background-color: #292929;
 }
 @media (min-width: 768px) {
   #start .reanactment-section .content {
@@ -130,6 +133,7 @@ a {
 }
 #start .reanactment-section h2 {
   font-size: 5rem;
+  text-align: center;
 }
 @media (min-width: 768px) {
   #start .reanactment-section h2 {
@@ -164,7 +168,6 @@ a {
 }
 #start .hire-us-section {
   min-height: 100vh;
-  text-align: left;
   background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
   background-size: cover;
   background-position: center left;
@@ -174,11 +177,15 @@ a {
     background-position: center center;
   }
 }
+#start .hire-us-section .content {
+  float: left;
+  margin-left: 10%;
+  text-align: left;
+}
 @media (min-width: 768px) {
   #start .hire-us-section .content {
     width: 50%;
     padding-top: 14vh;
-    margin-left: 10%;
   }
 }
 @media (min-width: 1200px) {
@@ -187,7 +194,6 @@ a {
   }
 }
 #start .hire-us-section .content h2 {
-  text-align: left;
   margin-bottom: 0;
   font-size: 6rem;
 }
@@ -198,6 +204,12 @@ a {
 }
 #start .hire-us-section .content p {
   margin-top: 10vh;
+  text-align: left;
+}
+#start .hire-us-section:after {
+  content: " ";
+  display: block;
+  clear: both;
 }
 @media (min-width: 768px) {
   #start .hire-us-section .button-component {
@@ -239,6 +251,237 @@ a {
   #start .join-us-section .button-component {
     text-align: left;
   }
+}
+#reanactment .top-section {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, transparent 50%, black), url('../img/lineup.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+#reanactment .top-section .content {
+  padding: 0;
+  padding-top: 15vh;
+}
+#reanactment .top-section .content h1,
+#reanactment .top-section .content h2 {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #reanactment .top-section .content {
+    padding-top: 45vh;
+  }
+}
+#reanactment .vikings-section {
+  background-color: #292929;
+}
+@media (min-width: 768px) {
+  #reanactment .vikings-section .content {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1200px) {
+  #reanactment .vikings-section .content {
+    width: 50%;
+  }
+}
+#reanactment .vikings-section img {
+  display: block;
+  height: 5rem;
+  width: 5rem;
+  margin: 2rem auto 0 auto;
+}
+@media (min-width: 768px) {
+  #reanactment .vikings-section img {
+    height: 7rem;
+    width: 7rem;
+    margin-bottom: 8rem;
+  }
+}
+#reanactment .vikings-section h2 {
+  font-size: 5rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #reanactment .vikings-section h2 {
+    font-size: 6rem;
+  }
+}
+#reanactment .vikings-section h3 {
+  color: #FF5151;
+  font-size: 5rem;
+  margin-bottom: 0;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  #reanactment .vikings-section h3 {
+    float: left;
+    margin-top: 0;
+    line-height: 1;
+    margin-right: 1rem;
+    font-size: 7rem;
+  }
+}
+#reanactment .vikings-section p {
+  color: #fff;
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  #reanactment .vikings-section p:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+#reanactment .historical-section {
+  background-color: #292929;
+}
+@media (min-width: 768px) {
+  #reanactment .historical-section .content {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1200px) {
+  #reanactment .historical-section .content {
+    width: 50%;
+  }
+}
+#reanactment .historical-section img {
+  display: block;
+  height: 5rem;
+  width: 5rem;
+  margin: 2rem auto 0 auto;
+}
+@media (min-width: 768px) {
+  #reanactment .historical-section img {
+    height: 7rem;
+    width: 7rem;
+    margin-bottom: 8rem;
+  }
+}
+#reanactment .historical-section h2 {
+  font-size: 5rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #reanactment .historical-section h2 {
+    font-size: 6rem;
+  }
+}
+#reanactment .historical-section h3 {
+  color: #FF5151;
+  font-size: 5rem;
+  margin-bottom: 0;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  #reanactment .historical-section h3 {
+    float: left;
+    margin-top: 0;
+    line-height: 1;
+    margin-right: 1rem;
+    font-size: 7rem;
+  }
+}
+#reanactment .historical-section p {
+  color: #fff;
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  #reanactment .historical-section p:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+#reanactment .fight-section {
+  background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
+  background-size: cover;
+  background-position: center left;
+}
+@media (min-width: 768px) {
+  #reanactment .fight-section {
+    background-position: center center;
+  }
+}
+#reanactment .fight-section .content {
+  float: left;
+  margin-left: 10%;
+  text-align: left;
+}
+@media (min-width: 768px) {
+  #reanactment .fight-section .content {
+    width: 50%;
+    padding-top: 14vh;
+  }
+}
+@media (min-width: 1200px) {
+  #reanactment .fight-section .content {
+    width: 40%;
+  }
+}
+#reanactment .fight-section .content h2 {
+  margin-bottom: 0;
+  font-size: 6rem;
+}
+#reanactment .fight-section .content h3 {
+  color: #FF5151;
+  font-size: 3rem;
+  margin-top: 0;
+}
+#reanactment .fight-section .content p {
+  margin-top: 10vh;
+  text-align: left;
+}
+#reanactment .fight-section:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#reanactment .craftmanship-section {
+  background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
+  background-size: cover;
+  background-position: center left;
+}
+@media (min-width: 768px) {
+  #reanactment .craftmanship-section {
+    background-position: center center;
+  }
+}
+#reanactment .craftmanship-section .content {
+  float: right;
+  margin-right: 10%;
+  text-align: right;
+}
+@media (min-width: 768px) {
+  #reanactment .craftmanship-section .content {
+    width: 50%;
+    padding-top: 14vh;
+  }
+}
+@media (min-width: 1200px) {
+  #reanactment .craftmanship-section .content {
+    width: 40%;
+  }
+}
+#reanactment .craftmanship-section .content h2 {
+  margin-bottom: 0;
+  font-size: 6rem;
+}
+#reanactment .craftmanship-section .content h3 {
+  color: #FF5151;
+  font-size: 3rem;
+  margin-top: 0;
+}
+#reanactment .craftmanship-section .content p {
+  margin-top: 10vh;
+  text-align: left;
+}
+#reanactment .craftmanship-section:after {
+  content: " ";
+  display: block;
+  clear: both;
 }
 /* Components */
 header {
