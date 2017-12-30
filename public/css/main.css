@@ -440,7 +440,7 @@ a {
   clear: both;
 }
 #reanactment .craftmanship-section {
-  background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
+  background: linear-gradient(to right, transparent, black), url('../img/craftmanship.jpg');
   background-size: cover;
   background-position: center left;
 }

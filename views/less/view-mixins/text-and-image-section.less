@@ -1,5 +1,10 @@
-.text-and-image-section (@side) {
-  background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
+.text-and-image-section (@side, @image-url) {
+  & when (@side='left') {
+    background: linear-gradient(to left, transparent, black), url(@image-url);
+  }
+  & when (@side='right') {
+    background: linear-gradient(to right, transparent, black), url(@image-url);
+  }
   background-size: cover;
   background-position: center left;
   @media (min-width: @screen-sm) {
@@ -45,7 +50,7 @@
       text-align: left;
     }
   }
-  
+
   &:after{
     content: " ";
     display: block; 
