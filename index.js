@@ -12,6 +12,10 @@ app.get('/reanactment', (req, res) => {
   res.send(routes.reanactment());
 });
 
+app.get('/hire-us', (req, res) => {
+  res.send(routes.hireUs());
+});
+
 /*app.all('/*', (req, res) => {
   res.redirect("/");
 });*/

@@ -25,7 +25,12 @@ const reanactment = () => {
   return getView('reanactment')();
 };
 
+const hireUs = () => {
+  return getView('hire-us')();
+}
+
 module.exports = {
   start,
-  reanactment
+  reanactment,
+  hireUs
 };

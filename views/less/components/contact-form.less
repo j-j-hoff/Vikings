@@ -1,0 +1,75 @@
+.image-container {
+  display: none;
+  @media (min-width: @screen-sm) {
+    display: table-cell;
+  }
+
+  width: 50%;
+  float: none;
+  vertical-align: top;
+  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,1) 100%), 
+    url('../img/aaron.png'), @dark-dark;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.form-container {
+  @media (min-width: @screen-sm) {
+    width: 50%;
+  }
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+
+  h2, h3, form {
+    margin: 0 auto;
+    @media (min-width: @screen-sm) {
+      width: 50%;
+    }
+  }
+
+  h2 {
+    font-size: 6rem;
+  }
+
+  h3 {
+    color: @red;
+    font-size: 3rem;
+  }
+
+  form {
+    margin-top: 2rem;
+
+    label,
+    input[type=text],
+    textarea {
+      display: block;
+      width: 100%;
+    }
+
+    label {
+      margin-top: 2rem;
+    }
+
+    input[type=text], 
+    textarea {
+      background-color: @main-dark;
+      padding: 0.8rem 0.2rem;
+      border: none;
+      border-bottom: 3px solid @main-dark;
+      outline: none;
+
+      &:focus {
+        border-bottom: 3px solid @white;
+      }
+    }
+  }
+
+  .button-component-form {
+    display: block;
+    margin: 5rem auto;
+    background-color: @main-dark;
+    min-width: 40%;
+  }
+}

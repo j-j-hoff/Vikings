@@ -1,9 +1,10 @@
 .text-and-image-section (@side, @image-url) {
-  & when (@side='left') {
-    background: linear-gradient(to left, transparent, black), url(@image-url);
-  }
-  & when (@side='right') {
-    background: linear-gradient(to right, transparent, black), url(@image-url);
+  background: linear-gradient(to left, transparent, black), url(@image-url);
+
+  @media (min-width: @screen-sm) {
+    & when (@side='right') {
+      background: linear-gradient(to right, transparent, black), url(@image-url);
+    }
   }
   background-size: cover;
   background-position: center left;
@@ -13,16 +14,18 @@
 
   .content {
     
-    & when (@side='left') {
-      float: left;
-      margin-left: 10%;
-      text-align: left;
-    }
+    @media (min-width: @screen-sm) {
+      & when (@side='left') {
+        float: left;
+        margin-left: 10%;
+        text-align: left;
+      }
 
-    & when (@side='right') {
-      float: right;
-      margin-right: 10%;
-      text-align: right;
+      & when (@side='right') {
+        float: right;
+        margin-right: 10%;
+        text-align: right;
+      }
     }
 
     @media (min-width: @screen-sm) {

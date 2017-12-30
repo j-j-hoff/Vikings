@@ -43,13 +43,19 @@ h3 {
   font-weight: normal;
   text-transform: uppercase;
 }
-p {
+p,
+label,
+input,
+textarea {
   color: #fff;
   font-size: 1.8rem;
   line-height: 1.4;
 }
 @media (min-width: 768px) {
-  p {
+  p,
+  label,
+  input,
+  textarea {
     font-size: 2.2rem;
   }
 }
@@ -106,6 +112,8 @@ a {
 #start .reanactment-section {
   min-height: 100vh;
   background-color: #292929;
+  display: flex;
+  align-items: center;
 }
 @media (min-width: 768px) {
   #start .reanactment-section .content {
@@ -177,10 +185,12 @@ a {
     background-position: center center;
   }
 }
-#start .hire-us-section .content {
-  float: left;
-  margin-left: 10%;
-  text-align: left;
+@media (min-width: 768px) {
+  #start .hire-us-section .content {
+    float: left;
+    margin-left: 10%;
+    text-align: left;
+  }
 }
 @media (min-width: 768px) {
   #start .hire-us-section .content {
@@ -273,6 +283,9 @@ a {
 }
 #reanactment .vikings-section {
   background-color: #292929;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
 }
 @media (min-width: 768px) {
   #reanactment .vikings-section .content {
@@ -333,8 +346,34 @@ a {
     clear: both;
   }
 }
+#reanactment .image-slide-section {
+  min-height: 80vh;
+  background: url('../img/horse.jpg');
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+}
+#reanactment .image-slide-section .content {
+  margin-left: 10%;
+}
+#reanactment .image-slide-section .content h3 {
+  color: #FF5151;
+  font-size: 5rem;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  #reanactment .image-slide-section .content h3 {
+    font-size: 6rem;
+  }
+}
+#reanactment .image-slide-section .content p {
+  max-width: 40%;
+}
 #reanactment .historical-section {
   background-color: #292929;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
 }
 @media (min-width: 768px) {
   #reanactment .historical-section .content {
@@ -399,16 +438,19 @@ a {
   background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
   background-size: cover;
   background-position: center left;
+  min-height: 100vh;
 }
 @media (min-width: 768px) {
   #reanactment .fight-section {
     background-position: center center;
   }
 }
-#reanactment .fight-section .content {
-  float: left;
-  margin-left: 10%;
-  text-align: left;
+@media (min-width: 768px) {
+  #reanactment .fight-section .content {
+    float: left;
+    margin-left: 10%;
+    text-align: left;
+  }
 }
 @media (min-width: 768px) {
   #reanactment .fight-section .content {
@@ -440,19 +482,27 @@ a {
   clear: both;
 }
 #reanactment .craftmanship-section {
-  background: linear-gradient(to right, transparent, black), url('../img/craftmanship.jpg');
+  background: linear-gradient(to left, transparent, black), url('../img/craftmanship.jpg');
   background-size: cover;
   background-position: center left;
+  min-height: 100vh;
+}
+@media (min-width: 768px) {
+  #reanactment .craftmanship-section {
+    background: linear-gradient(to right, transparent, black), url('../img/craftmanship.jpg');
+  }
 }
 @media (min-width: 768px) {
   #reanactment .craftmanship-section {
     background-position: center center;
   }
 }
-#reanactment .craftmanship-section .content {
-  float: right;
-  margin-right: 10%;
-  text-align: right;
+@media (min-width: 768px) {
+  #reanactment .craftmanship-section .content {
+    float: right;
+    margin-right: 10%;
+    text-align: right;
+  }
 }
 @media (min-width: 768px) {
   #reanactment .craftmanship-section .content {
@@ -482,6 +532,164 @@ a {
   content: " ";
   display: block;
   clear: both;
+}
+#reanactment .join-us-section {
+  background-color: #000;
+}
+#reanactment .join-us-section .content {
+  padding: 0 1.5rem;
+  margin: 0;
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+}
+#reanactment .join-us-section .content > div {
+  padding: 0;
+  padding-top: 15vh;
+}
+#hire-us .top-section {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, transparent 50%, black), url('../img/filming.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+#hire-us .top-section .content {
+  padding: 0;
+  padding-top: 15vh;
+}
+#hire-us .top-section .content h1,
+#hire-us .top-section .content h2 {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #hire-us .top-section .content {
+    padding-top: 45vh;
+  }
+}
+#hire-us .hire-section {
+  background-color: #292929;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+@media (min-width: 768px) {
+  #hire-us .hire-section .content {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1200px) {
+  #hire-us .hire-section .content {
+    width: 50%;
+  }
+}
+#hire-us .hire-section img {
+  display: block;
+  height: 5rem;
+  width: 5rem;
+  margin: 2rem auto 0 auto;
+}
+@media (min-width: 768px) {
+  #hire-us .hire-section img {
+    height: 7rem;
+    width: 7rem;
+    margin-bottom: 8rem;
+  }
+}
+#hire-us .hire-section h2 {
+  font-size: 5rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #hire-us .hire-section h2 {
+    font-size: 6rem;
+  }
+}
+#hire-us .hire-section h3 {
+  color: #FF5151;
+  font-size: 5rem;
+  margin-bottom: 0;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  #hire-us .hire-section h3 {
+    float: left;
+    margin-top: 0;
+    line-height: 1;
+    margin-right: 1rem;
+    font-size: 7rem;
+  }
+}
+#hire-us .hire-section p {
+  color: #fff;
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  #hire-us .hire-section p:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+#hire-us .image-slide-movie-section {
+  min-height: 80vh;
+  background: url('../img/profile.jpg');
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+}
+#hire-us .image-slide-movie-section .content {
+  margin-left: 10%;
+}
+#hire-us .image-slide-movie-section .content h3 {
+  color: #FF5151;
+  font-size: 5rem;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  #hire-us .image-slide-movie-section .content h3 {
+    font-size: 6rem;
+  }
+}
+#hire-us .image-slide-movie-section .content p {
+  max-width: 40%;
+}
+#hire-us .image-slide-shows-section {
+  min-height: 80vh;
+  background: url('../img/fighting.jpg');
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+}
+#hire-us .image-slide-shows-section .content {
+  margin-left: 10%;
+}
+#hire-us .image-slide-shows-section .content h3 {
+  color: #FF5151;
+  font-size: 5rem;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  #hire-us .image-slide-shows-section .content h3 {
+    font-size: 6rem;
+  }
+}
+#hire-us .image-slide-shows-section .content p {
+  max-width: 40%;
+}
+#hire-us .join-us-section {
+  background-color: #000;
+}
+#hire-us .join-us-section .content {
+  padding: 0 1.5rem;
+  margin: 0;
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+}
+#hire-us .join-us-section .content > div {
+  padding: 0;
+  padding-top: 15vh;
 }
 /* Components */
 header {
@@ -738,7 +946,8 @@ footer:after {
     margin-top: 10rem;
   }
 }
-.button-component a {
+.button-component a,
+.button-component-form {
   font-family: 'norseregular';
   font-size: 4rem;
   border: 1px solid #fff;
@@ -749,10 +958,85 @@ footer:after {
   background-size: 0% 100%;
   transition: background-size 0.5s, color 0.5s;
 }
-.button-component a:hover {
+.button-component a:hover,
+.button-component-form:hover {
   cursor: pointer;
   background-size: 100% 100%;
   color: #fff;
+}
+.image-container {
+  display: none;
+  width: 50%;
+  float: none;
+  vertical-align: top;
+  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 50%, #000000 100%), url('../img/aaron.png'), #000;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+@media (min-width: 768px) {
+  .image-container {
+    display: table-cell;
+  }
+}
+.form-container {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+}
+@media (min-width: 768px) {
+  .form-container {
+    width: 50%;
+  }
+}
+.form-container h2,
+.form-container h3,
+.form-container form {
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .form-container h2,
+  .form-container h3,
+  .form-container form {
+    width: 50%;
+  }
+}
+.form-container h2 {
+  font-size: 6rem;
+}
+.form-container h3 {
+  color: #FF5151;
+  font-size: 3rem;
+}
+.form-container form {
+  margin-top: 2rem;
+}
+.form-container form label,
+.form-container form input[type=text],
+.form-container form textarea {
+  display: block;
+  width: 100%;
+}
+.form-container form label {
+  margin-top: 2rem;
+}
+.form-container form input[type=text],
+.form-container form textarea {
+  background-color: #292929;
+  padding: 0.8rem 0.2rem;
+  border: none;
+  border-bottom: 3px solid #292929;
+  outline: none;
+}
+.form-container form input[type=text]:focus,
+.form-container form textarea:focus {
+  border-bottom: 3px solid #fff;
+}
+.form-container .button-component-form {
+  display: block;
+  margin: 5rem auto;
+  background-color: #292929;
+  min-width: 40%;
 }
 /* Mixins */
 /* View Mixins */

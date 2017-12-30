@@ -5,25 +5,43 @@
 
   .vikings-section {
     .text-section();
+    min-height: 100vh;
   }
 
   .image-slide-section {
-
+    .image-section('../img/horse.jpg');
+    min-height: 100vh;
   }
 
   .historical-section {
     .text-section();
+    min-height: 100vh;
   }
 
   .fight-section {
     .text-and-image-section('left', '../img/fighters.png');
+    min-height: 100vh;
   }
 
   .craftmanship-section {
     .text-and-image-section('right', '../img/craftmanship.jpg');
+    min-height: 100vh;
   }
 
   .join-us-section {
-    
+    background-color: @dark-dark;
+
+    .content {
+      padding: 0 1.5rem;
+      margin: 0;
+      display: table;
+      width: 100%;
+      box-sizing: border-box;
+
+      > div {
+        padding: 0;
+        padding-top: 15vh;
+      }
+    }
   }
 }

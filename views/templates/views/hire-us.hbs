@@ -4,20 +4,19 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body id="start">
+  <body id="hire-us">
     {{>header}}
     <section class="top-section">
       <div class="content">
-        <h1>Skåne Lag</h1>
-        <h2>Viking age renactors</h2>
+        <h1>Hire us</h1>
+        <h2>Movies · Shows · Events</h2>
       </div>
-      <img src="../img/there-is-more.svg"/>
     </section>
-    <section class="reanactment-section">
+
+    <section class="hire-section">
       <div class="content">
-        <h2>Reanactment</h2>
         <img src="../img/viking-icon.svg"/>
-        <h3>Warriors</h3>
+        <h3>Hire us</h3>
         <p>Bacon ipsum dolor amet hamburger beribs kevin fatback, rump bresaola filet mignon tongue brisket. 
           Pig ball tip venison brisket. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
           turkey tenderloin cupim. Short ribs pancetta hamburger boudin. Meatball leberkas pork belly brisket biltong. 
@@ -25,16 +24,20 @@
           turkey tenderloin cupim. Short ribs pancetta hamburger boudin. Meatball leberkas pork belly brisket biltong. 
           Sirloin burgdoggen pastrami bacon.
         </p>
-        {{> button 
-          text='Learn More' 
-          link="/reanactment" 
-        }}
       </div>
     </section>
-    <section class="hire-us-section">
+
+    <section class="image-slide-movie-section">
       <div class="content">
-        <h2>Hire Us</h2>
-        <h3>Movies · Shows</h3>
+        <h3>Movies</h3>
+        <p>Bacon ipsum dolor amet hamburger beribs kevin fatback. Bacon ipsum dolor amet hamburger beribs kevin fatback.</p>
+      </div>
+    </section>
+
+    <section class="hire-section">
+      <div class="content">
+        <img src="../img/viking-icon.svg"/>
+        <h3>Hire us</h3>
         <p>Bacon ipsum dolor amet hamburger beribs kevin fatback, rump bresaola filet mignon tongue brisket. 
           Pig ball tip venison brisket. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
           turkey tenderloin cupim. Short ribs pancetta hamburger boudin. Meatball leberkas pork belly brisket biltong. 
@@ -42,19 +45,21 @@
           turkey tenderloin cupim. Short ribs pancetta hamburger boudin. Meatball leberkas pork belly brisket biltong. 
           Sirloin burgdoggen pastrami bacon.
         </p>
-        {{> button 
-          text='Learn More' 
-          link="/hire-us" 
-        }}
       </div>
     </section>
+
+    <section class="image-slide-shows-section">
+      <div class="content">
+        <h3>Shows</h3>
+        <p>Bacon ipsum dolor amet hamburger beribs kevin fatback. Bacon ipsum dolor amet hamburger beribs kevin fatback.</p>
+      </div>
+    </section>
+
     <section class="join-us-section">
       <div class="content">
-        <h3>Join us</h3>
-        <h2>Become a viking</h2>
-        {{> button 
-          text='Learn More' 
-          link="/reanactment" 
+        {{>contact-form
+          h2='Get in touch' 
+          h3="More info"
         }}
       </div>
     </section>

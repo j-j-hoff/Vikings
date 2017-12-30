@@ -1,3 +1,23 @@
-.image-section () {
+.image-section (@image-url) {
+  min-height: 80vh;
+  background: url(@image-url);
+  background-size: cover;
+  background-position: center center;
 
+  .content {
+    margin-left: 10%;
+
+    h3 {
+      color: @red;
+      font-size: 5rem;
+      margin: 0;
+      @media (min-width: @screen-sm) {
+        font-size: 6rem;
+      }
+    }
+
+    p {
+      max-width: 40%;
+    }
+  }
 }
