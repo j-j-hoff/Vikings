@@ -122,6 +122,7 @@ a {
 }
 #start .reanactment-section {
   min-height: 100vh;
+  min-height: 90vh;
   background-color: #292929;
   display: flex;
   align-items: center;
@@ -187,6 +188,7 @@ a {
 }
 #start .hire-us-section {
   min-height: 100vh;
+  min-height: 90vh;
   background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
   background-size: cover;
   background-position: center left;
@@ -303,7 +305,7 @@ a {
   text-align: left;
 }
 #reanactment .vikings-section {
-  min-height: 100vh;
+  min-height: 90vh;
   background-color: #292929;
   display: flex;
   align-items: center;
@@ -398,7 +400,7 @@ a {
   }
 }
 #reanactment .historical-section {
-  min-height: 100vh;
+  min-height: 90vh;
   background-color: #292929;
   display: flex;
   align-items: center;
@@ -463,7 +465,7 @@ a {
   }
 }
 #reanactment .fight-section {
-  min-height: 100vh;
+  min-height: 90vh;
   background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
   background-size: cover;
   background-position: center left;
@@ -510,7 +512,7 @@ a {
   clear: both;
 }
 #reanactment .craftmanship-section {
-  min-height: 100vh;
+  min-height: 90vh;
   background: linear-gradient(to left, transparent, black), url('../img/craftmanship.jpg');
   background-size: cover;
   background-position: center left;
@@ -606,7 +608,7 @@ a {
   text-align: left;
 }
 #hire-us .hire-section {
-  min-height: 100vh;
+  min-height: 90vh;
   background-color: #292929;
   display: flex;
   align-items: center;
@@ -1111,11 +1113,13 @@ footer:after {
   height: 100%;
   background: linear-gradient(to bottom, transparent 50%, black);
 }
-.image-slider .images .active {
+.image-slider .images .image {
   height: 100%;
+  width: 100%;
   position: absolute;
-  left: -75%;
   z-index: -1;
+  background-size: cover;
+  background-position: center center;
 }
 .image-slider .slide-controllers {
   position: relative;
@@ -1125,6 +1129,12 @@ footer:after {
 .image-slider .slide-controllers img {
   height: 6rem;
   margin: 0 0.5rem;
+}
+@media (min-width: 768px) {
+  .image-slider .slide-controllers img {
+    height: 8rem;
+    margin: 0 1.5rem;
+  }
 }
 .image-slider .slide-controllers img:first-of-type {
   float: left;

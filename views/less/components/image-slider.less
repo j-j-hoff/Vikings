@@ -7,11 +7,13 @@
     height: 100%;
     background: linear-gradient(to bottom, transparent 50%, black);
 
-    .active {
+    .image {
       height: 100%;
+      width: 100%;
       position: absolute;
-      left: -75%;
       z-index: -1;
+      background-size: cover;
+      background-position: center center;
     }
   }
 
@@ -23,6 +25,10 @@
     img {
       height: 6rem;
       margin: 0 0.5rem;
+      @media (min-width: @screen-sm) {
+        height: 8rem;
+        margin: 0 1.5rem;
+      }
 
       &:first-of-type {
         float: left;

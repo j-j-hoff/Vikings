@@ -2,10 +2,12 @@
 <div class="image-slider">
   <div class="images">
     {{#each images}}
-      <img class="active" src="{{this.url}}">
-      <div class="content">
-          <h3>{{this.heading}}</h3>
-          <p>{{this.text}}</p>
+      <div class="sliding-element">
+        <div class="image" style="background-image:url({{this.url}})"></div>
+        <div class="content">
+            <h3>{{this.heading}}</h3>
+            <p>{{this.text}}</p>
+        </div>
       </div>
    {{/each}} 
   </div>
