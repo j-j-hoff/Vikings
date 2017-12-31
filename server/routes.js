@@ -13,6 +13,10 @@ filenames.forEach(function (filename) {
   Handlebars.registerPartial(name, template);
 });
 
+Handlebars.registerHelper('json', function(data, options) {
+  return options.fn(JSON.parse(data));
+});
+
 const getView = (viewName) => {
   return Handlebars.compile(fs.readFileSync(viewsDir + '/' + viewName + '.hbs', 'utf8'));
 }

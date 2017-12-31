@@ -1,21 +1,29 @@
 #hire-us {
   .top-section{
     .top-section('../img/filming.jpg');
+    position: relative;
+    z-index: -1;
+    .content {
+      position: absolute;
+      bottom: 9rem;
+
+      h1,
+      h2 {
+        text-align: left;
+      }
+    }
   }
 
   .hire-section {
     .text-section();
-    min-height: 100vh;
   }
 
   .image-slide-movie-section {
-    .image-section('../img/profile.jpg');
-    min-height: 100vh;
+    .image-section();
   }
 
   .image-slide-shows-section {
-    .image-section('../img/fighting.jpg');
-    min-height: 100vh;
+    .image-section();
   }
 
   .join-us-section {

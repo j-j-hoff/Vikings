@@ -1,0 +1,17 @@
+{{#json images}}
+<div class="image-slider">
+  <div class="images">
+    {{#each images}}
+      <img class="active" src="{{this.url}}">
+      <div class="content">
+          <h3>{{this.heading}}</h3>
+          <p>{{this.text}}</p>
+      </div>
+   {{/each}} 
+  </div>
+  <div class="slide-controllers">
+    <img src="../img/arrow-left.svg"/>
+    <img src="../img/arrow-right.svg"/>
+  </div>
+</div>
+{{/json}}

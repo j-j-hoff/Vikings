@@ -66,3 +66,15 @@ a {
   color: @white;
   text-decoration: none;
 }
+
+.break-point {
+  display: block;
+
+  @media (min-width: @screen-sm) {
+    display: none;
+  } 
+}
+
+.no-wrap{
+  white-space: nowrap;
+}

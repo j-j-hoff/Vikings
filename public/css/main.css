@@ -63,6 +63,17 @@ a {
   color: #fff;
   text-decoration: none;
 }
+.break-point {
+  display: block;
+}
+@media (min-width: 768px) {
+  .break-point {
+    display: none;
+  }
+}
+.no-wrap {
+  white-space: nowrap;
+}
 #start .top-section {
   min-height: 100vh;
   background: linear-gradient(to bottom, transparent 50%, black), url('../img/main.png');
@@ -263,6 +274,8 @@ a {
   }
 }
 #reanactment .top-section {
+  position: relative;
+  z-index: -1;
   min-height: 100vh;
   background: linear-gradient(to bottom, transparent 50%, black), url('../img/lineup.jpg');
   background-size: cover;
@@ -281,11 +294,19 @@ a {
     padding-top: 45vh;
   }
 }
+#reanactment .top-section .content {
+  position: absolute;
+  bottom: 9rem;
+}
+#reanactment .top-section .content h1,
+#reanactment .top-section .content h2 {
+  text-align: left;
+}
 #reanactment .vikings-section {
+  min-height: 100vh;
   background-color: #292929;
   display: flex;
   align-items: center;
-  min-height: 100vh;
 }
 @media (min-width: 768px) {
   #reanactment .vikings-section .content {
@@ -347,14 +368,19 @@ a {
   }
 }
 #reanactment .image-slide-section {
-  min-height: 80vh;
-  background: url('../img/horse.jpg');
-  background-size: cover;
-  background-position: center center;
-  min-height: 100vh;
+  height: 90vh;
+  position: relative;
+  z-index: -1;
 }
 #reanactment .image-slide-section .content {
-  margin-left: 10%;
+  position: absolute;
+  bottom: 5rem;
+  padding-bottom: 0;
+}
+@media (min-width: 768px) {
+  #reanactment .image-slide-section .content {
+    margin-left: 10%;
+  }
 }
 #reanactment .image-slide-section .content h3 {
   color: #FF5151;
@@ -366,14 +392,16 @@ a {
     font-size: 6rem;
   }
 }
-#reanactment .image-slide-section .content p {
-  max-width: 40%;
+@media (min-width: 768px) {
+  #reanactment .image-slide-section .content p {
+    max-width: 40%;
+  }
 }
 #reanactment .historical-section {
+  min-height: 100vh;
   background-color: #292929;
   display: flex;
   align-items: center;
-  min-height: 100vh;
 }
 @media (min-width: 768px) {
   #reanactment .historical-section .content {
@@ -435,10 +463,10 @@ a {
   }
 }
 #reanactment .fight-section {
+  min-height: 100vh;
   background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
   background-size: cover;
   background-position: center left;
-  min-height: 100vh;
 }
 @media (min-width: 768px) {
   #reanactment .fight-section {
@@ -482,10 +510,11 @@ a {
   clear: both;
 }
 #reanactment .craftmanship-section {
+  min-height: 100vh;
   background: linear-gradient(to left, transparent, black), url('../img/craftmanship.jpg');
   background-size: cover;
   background-position: center left;
-  min-height: 100vh;
+  background-position: center center;
 }
 @media (min-width: 768px) {
   #reanactment .craftmanship-section {
@@ -552,6 +581,8 @@ a {
   background: linear-gradient(to bottom, transparent 50%, black), url('../img/filming.jpg');
   background-size: cover;
   background-position: center center;
+  position: relative;
+  z-index: -1;
 }
 #hire-us .top-section .content {
   padding: 0;
@@ -566,11 +597,19 @@ a {
     padding-top: 45vh;
   }
 }
+#hire-us .top-section .content {
+  position: absolute;
+  bottom: 9rem;
+}
+#hire-us .top-section .content h1,
+#hire-us .top-section .content h2 {
+  text-align: left;
+}
 #hire-us .hire-section {
+  min-height: 100vh;
   background-color: #292929;
   display: flex;
   align-items: center;
-  min-height: 100vh;
 }
 @media (min-width: 768px) {
   #hire-us .hire-section .content {
@@ -632,14 +671,19 @@ a {
   }
 }
 #hire-us .image-slide-movie-section {
-  min-height: 80vh;
-  background: url('../img/profile.jpg');
-  background-size: cover;
-  background-position: center center;
-  min-height: 100vh;
+  height: 90vh;
+  position: relative;
+  z-index: -1;
 }
 #hire-us .image-slide-movie-section .content {
-  margin-left: 10%;
+  position: absolute;
+  bottom: 5rem;
+  padding-bottom: 0;
+}
+@media (min-width: 768px) {
+  #hire-us .image-slide-movie-section .content {
+    margin-left: 10%;
+  }
 }
 #hire-us .image-slide-movie-section .content h3 {
   color: #FF5151;
@@ -651,18 +695,25 @@ a {
     font-size: 6rem;
   }
 }
-#hire-us .image-slide-movie-section .content p {
-  max-width: 40%;
+@media (min-width: 768px) {
+  #hire-us .image-slide-movie-section .content p {
+    max-width: 40%;
+  }
 }
 #hire-us .image-slide-shows-section {
-  min-height: 80vh;
-  background: url('../img/fighting.jpg');
-  background-size: cover;
-  background-position: center center;
-  min-height: 100vh;
+  height: 90vh;
+  position: relative;
+  z-index: -1;
 }
 #hire-us .image-slide-shows-section .content {
-  margin-left: 10%;
+  position: absolute;
+  bottom: 5rem;
+  padding-bottom: 0;
+}
+@media (min-width: 768px) {
+  #hire-us .image-slide-shows-section .content {
+    margin-left: 10%;
+  }
 }
 #hire-us .image-slide-shows-section .content h3 {
   color: #FF5151;
@@ -674,8 +725,10 @@ a {
     font-size: 6rem;
   }
 }
-#hire-us .image-slide-shows-section .content p {
-  max-width: 40%;
+@media (min-width: 768px) {
+  #hire-us .image-slide-shows-section .content p {
+    max-width: 40%;
+  }
 }
 #hire-us .join-us-section {
   background-color: #000;
@@ -964,7 +1017,18 @@ footer:after {
   background-size: 100% 100%;
   color: #fff;
 }
-.image-container {
+.contact-form .content {
+  padding: 0 1.5rem;
+  margin: 0;
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+}
+.contact-form .content > div {
+  padding: 0;
+  padding-top: 15vh;
+}
+.contact-form .content .image-container {
   display: none;
   width: 50%;
   float: none;
@@ -975,68 +1039,98 @@ footer:after {
   background-size: cover;
 }
 @media (min-width: 768px) {
-  .image-container {
+  .contact-form .content .image-container {
     display: table-cell;
   }
 }
-.form-container {
+.contact-form .content .form-container {
   float: none;
   display: table-cell;
   vertical-align: top;
 }
 @media (min-width: 768px) {
-  .form-container {
+  .contact-form .content .form-container {
     width: 50%;
   }
 }
-.form-container h2,
-.form-container h3,
-.form-container form {
+.contact-form .content .form-container h2,
+.contact-form .content .form-container h3,
+.contact-form .content .form-container form {
   margin: 0 auto;
 }
 @media (min-width: 768px) {
-  .form-container h2,
-  .form-container h3,
-  .form-container form {
+  .contact-form .content .form-container h2,
+  .contact-form .content .form-container h3,
+  .contact-form .content .form-container form {
     width: 50%;
   }
 }
-.form-container h2 {
+.contact-form .content .form-container h2 {
   font-size: 6rem;
 }
-.form-container h3 {
+.contact-form .content .form-container h3 {
   color: #FF5151;
   font-size: 3rem;
 }
-.form-container form {
+.contact-form .content .form-container form {
   margin-top: 2rem;
 }
-.form-container form label,
-.form-container form input[type=text],
-.form-container form textarea {
+.contact-form .content .form-container form label,
+.contact-form .content .form-container form input[type=text],
+.contact-form .content .form-container form textarea {
   display: block;
   width: 100%;
 }
-.form-container form label {
+.contact-form .content .form-container form label {
   margin-top: 2rem;
 }
-.form-container form input[type=text],
-.form-container form textarea {
+.contact-form .content .form-container form input[type=text],
+.contact-form .content .form-container form textarea {
   background-color: #292929;
   padding: 0.8rem 0.2rem;
   border: none;
   border-bottom: 3px solid #292929;
   outline: none;
 }
-.form-container form input[type=text]:focus,
-.form-container form textarea:focus {
+.contact-form .content .form-container form input[type=text]:focus,
+.contact-form .content .form-container form textarea:focus {
   border-bottom: 3px solid #fff;
 }
-.form-container .button-component-form {
+.contact-form .content .form-container .button-component-form {
   display: block;
   margin: 5rem auto;
   background-color: #292929;
   min-width: 40%;
+}
+.image-slider {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.image-slider .images {
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 50%, black);
+}
+.image-slider .images .active {
+  height: 100%;
+  position: absolute;
+  left: -75%;
+  z-index: -1;
+}
+.image-slider .slide-controllers {
+  position: relative;
+  top: -55%;
+  z-index: 1;
+}
+.image-slider .slide-controllers img {
+  height: 6rem;
+  margin: 0 0.5rem;
+}
+.image-slider .slide-controllers img:first-of-type {
+  float: left;
+}
+.image-slider .slide-controllers img:last-of-type {
+  float: right;
 }
 /* Mixins */
 /* View Mixins */

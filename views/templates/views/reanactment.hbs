@@ -8,7 +8,7 @@
     {{>header}}
     <section class="top-section">
       <div class="content">
-        <h1>Reanactment</h1>
+        <h1>Reanact<br class="break-point">ment</h1>
         <h2>Live your history</h2>
       </div>
     </section>
@@ -28,10 +28,16 @@
     </section>
     
     <section class="image-slide-section">
-      <div class="content">
-        <h3>Vikings</h3>
-        <p>Bacon ipsum dolor amet hamburger beribs kevin fatback. Bacon ipsum dolor amet hamburger beribs kevin fatback.</p>
-      </div>
+      {{>image-slider
+        images= '{
+        "images":[
+          { 
+            "url": "../img/horse.jpg", 
+            "heading":"Vikings",
+            "text": "Bacon ipsum dolor amet hamburger beribs kevin fatback. Bacon ipsum dolor amet hamburger beribs kevin fatback."
+          }
+        ]}'
+      }}
     </section>
 
     <section class="historical-section">
@@ -51,7 +57,7 @@
     <section class="fight-section">
       <div class="content">
         <h2>Fighters</h2>
-        <h3>Sword · Axe · Spear</h3>
+        <h3>Sword <span class="no-wrap">· Axe</span> <span class="no-wrap">· Spear</span></h3>
         <p>Bacon ipsum dolor amet hamburger beribs kevin fatback, rump bresaola filet mignon tongue brisket. 
           Pig ball tip venison brisket. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
           turkey tenderloin cupim. Short ribs pancetta hamburger boudin. Meatball leberkas pork belly brisket biltong. 
@@ -65,7 +71,7 @@
     <section class="craftmanship-section">
       <div class="content">
         <h2>Craftsmen</h2>
-        <h3>Metal · Jewlery · Cloathing</h3>
+        <h3>Metal <span class="no-wrap">· Jewlery</span> <span class="no-wrap">· Cloathing</span></h3>
         <p>Bacon ipsum dolor amet hamburger beribs kevin fatback, rump bresaola filet mignon tongue brisket. 
           Pig ball tip venison brisket. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
           turkey tenderloin cupim. Short ribs pancetta hamburger boudin. Meatball leberkas pork belly brisket biltong. 
@@ -77,12 +83,10 @@
     </section>
 
     <section class="join-us-section">
-      <div class="content">
         {{>contact-form
           h2='Become a viking' 
           h3="Join us"
         }}
-      </div>
     </section>
     {{>footer}}
     <script src="/js/main.js"></script>

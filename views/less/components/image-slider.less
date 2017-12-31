@@ -1,0 +1,35 @@
+.image-slider {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+
+  .images {
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 50%, black);
+
+    .active {
+      height: 100%;
+      position: absolute;
+      left: -75%;
+      z-index: -1;
+    }
+  }
+
+  .slide-controllers {
+    position: relative;
+    top: -55%;
+    z-index: 1;
+
+    img {
+      height: 6rem;
+      margin: 0 0.5rem;
+
+      &:first-of-type {
+        float: left;
+      }
+      &:last-of-type {
+        float: right;
+      }
+    }
+  }
+}

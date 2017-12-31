@@ -1,31 +1,39 @@
 #reanactment {
-  .top-section{
+  .top-section {
+    position: relative;
+    z-index: -1;
     .top-section('../img/lineup.jpg');
+    .content {
+      position: absolute;
+      bottom: 9rem;
+
+      h1,
+      h2 {
+        text-align: left;
+      }
+    }
   }
 
   .vikings-section {
     .text-section();
-    min-height: 100vh;
   }
 
   .image-slide-section {
-    .image-section('../img/horse.jpg');
-    min-height: 100vh;
+    .image-section();
+    //.image-section('../img/horse.jpg');
   }
 
   .historical-section {
     .text-section();
-    min-height: 100vh;
   }
 
   .fight-section {
     .text-and-image-section('left', '../img/fighters.png');
-    min-height: 100vh;
   }
 
   .craftmanship-section {
     .text-and-image-section('right', '../img/craftmanship.jpg');
-    min-height: 100vh;
+    background-position: center center;
   }
 
   .join-us-section {
