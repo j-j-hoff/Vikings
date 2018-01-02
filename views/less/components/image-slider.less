@@ -7,13 +7,24 @@
     height: 100%;
     background: linear-gradient(to bottom, transparent 50%, black);
 
-    .image {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      z-index: -1;
-      background-size: cover;
-      background-position: center center;
+    .sliding-element {
+      .image {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+        left: 100%;
+        background-size: cover;
+        background-position: center center;
+        transition: left ease-out;
+
+      }
+
+      &:first-of-type {
+        .image {
+          left: 0;
+        }
+      }
     }
   }
 

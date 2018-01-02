@@ -1,1 +1,1 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var hello=function(){console.log("Hello")};exports.hello=hello;
+"use strict";window.addEventListener("load",function(){document.querySelectorAll(".image-slider").forEach(function(o){console.log("Körs"),o&&console.log("Den finns"),o.addEventListener("click",function(){console.log("Körs")})})});var process_touchstart=function(){alert("Tocuh")};
