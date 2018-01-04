@@ -1,14 +1,35 @@
+
+let imageSlider = null;
+let image = null;
+
 window.addEventListener('load', function() {
-  const imageSliders = document.querySelectorAll('.image-slider');
-  imageSliders.forEach((imageSlider) => {
-    console.log('Körs');
-    if (imageSlider) {console.log('Den finns')}
-    imageSlider.addEventListener('click', function(){console.log('Körs');});
-    /*imageSlider.addEventListener('touchmove', process_touchmove, false);
-    imageSlider.addEventListener('touchend', process_touchend, false);*/
-  });
+  imageSlider = document.querySelector('.image-slider');
+  image = imageSlider.querySelector('.image');
+  imageSlider.addEventListener("touchstart", touchHandler, false);
+  imageSlider.addEventListener("touchmove", touchHandler, false);
+  imageSlider.addEventListener("touchend", touchHandler, false);
+
 });
 
-const process_touchstart = () => {
-  alert('Tocuh');
+
+let startClientX = null;
+let endClientX = null;
+let deltaClientX = null;
+
+function touchHandler(e) {
+  if (e.type == "touchstart") {
+    startClientX = e.touches[0].clientX;
+  } else if (e.type == "touchmove") {
+    e.preventDefault();
+    const prev = endClientX ? endClientX : startClientX;
+    endClientX = e.touches[0].clientX;
+    var rect = image.getBoundingClientRect();
+    deltaClientX = prev - endClientX;
+    image.style.left = rect.left - deltaClientX;
+  } else if (e.type == "touchend" || e.type == "touchcancel") {
+    startClientX = null;
+    endClientX = null;
+    deltaClientX = null;
+    image.style.left = 0;
+  }
 }

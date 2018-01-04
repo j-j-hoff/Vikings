@@ -371,8 +371,6 @@ a {
 }
 #reanactment .image-slide-section {
   height: 90vh;
-  position: relative;
-  z-index: -1;
 }
 #reanactment .image-slide-section .content {
   position: absolute;
@@ -674,8 +672,6 @@ a {
 }
 #hire-us .image-slide-movie-section {
   height: 90vh;
-  position: relative;
-  z-index: -1;
 }
 #hire-us .image-slide-movie-section .content {
   position: absolute;
@@ -704,8 +700,6 @@ a {
 }
 #hire-us .image-slide-shows-section {
   height: 90vh;
-  position: relative;
-  z-index: -1;
 }
 #hire-us .image-slide-shows-section .content {
   position: absolute;
@@ -1121,6 +1115,8 @@ footer:after {
   left: 100%;
   background-size: cover;
   background-position: center center;
+}
+.image-slider .images .sliding-element .animate {
   transition: left ease-out;
 }
 .image-slider .images .sliding-element:first-of-type .image {

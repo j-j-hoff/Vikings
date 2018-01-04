@@ -19,6 +19,6 @@ gulp.task('pack-js', function () {
 	return gulp.src(['./views/scripts/components/*.js'])
     .pipe(concat('main.js'))
     .pipe(babel())
-    .pipe(minify({ ext:{ min:'.js' }, noSource: true }))
+    //.pipe(minify({ ext:{ min:'.js' }, noSource: true }))
 		.pipe(gulp.dest('public/js'));
 });
