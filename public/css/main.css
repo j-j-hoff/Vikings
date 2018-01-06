@@ -1117,10 +1117,10 @@ footer:after {
   background-position: center center;
 }
 .image-slider .images .sliding-element .animate {
-  transition: left ease-out;
+  transition: transform ease-out;
 }
 .image-slider .images .sliding-element:first-of-type .image {
-  left: 0;
+  transform: translateX(-100%);
 }
 .image-slider .slide-controllers {
   position: relative;

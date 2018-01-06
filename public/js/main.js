@@ -18,17 +18,22 @@ var deltaClientX = null;
 function touchHandler(e) {
   if (e.type == "touchstart") {
     startClientX = e.touches[0].clientX;
+    image.classList.remove('animate');
+    image.style.transitionDuration = "0s";
   } else if (e.type == "touchmove") {
     e.preventDefault();
     var prev = endClientX ? endClientX : startClientX;
     endClientX = e.touches[0].clientX;
     var rect = image.getBoundingClientRect();
-    deltaClientX = prev - endClientX;
-    image.style.left = rect.left - deltaClientX;
+    deltaClientX = (startClientX - endClientX) / window.innerWidth * 100;
+    console.log(deltaClientX);
+    image.style.transform = 'translateX(-' + (100 + deltaClientX) + '%)';
   } else if (e.type == "touchend" || e.type == "touchcancel") {
     startClientX = null;
     endClientX = null;
     deltaClientX = null;
-    image.style.left = 0;
+    image.classList.add('animate');
+    image.style.transitionDuration = "0.5s";
+    image.style.transform = 'translateX(-100%)';
   }
 }
