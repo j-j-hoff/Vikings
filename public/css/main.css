@@ -1115,11 +1115,12 @@ footer:after {
   left: 100%;
   background-size: cover;
   background-position: center center;
+  transform: translateX(0%);
 }
 .image-slider .images .sliding-element .animate {
   transition: transform ease-out;
 }
-.image-slider .images .sliding-element:first-of-type .image {
+.image-slider .images .sliding-element.active .image {
   transform: translateX(-100%);
 }
 .image-slider .slide-controllers {

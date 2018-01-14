@@ -2,7 +2,7 @@
 <div class="image-slider">
   <div class="images">
     {{#each images}}
-      <div class="sliding-element">
+      <div class="sliding-element {{#ifCond @index 0}}active{{/ifCond}}">
         <div class="image" style="background-image:url({{this.url}})"></div>
         <div class="content">
             <h3>{{this.heading}}</h3>

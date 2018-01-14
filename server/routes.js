@@ -17,6 +17,13 @@ Handlebars.registerHelper('json', function(data, options) {
   return options.fn(JSON.parse(data));
 });
 
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
 const getView = (viewName) => {
   return Handlebars.compile(fs.readFileSync(viewsDir + '/' + viewName + '.hbs', 'utf8'));
 }

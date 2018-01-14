@@ -16,13 +16,14 @@
         left: 100%;
         background-size: cover;
         background-position: center center;
+        transform: translateX(0%);
       }
 
       .animate {
         transition: transform ease-out;
       }
 
-      &:first-of-type {
+      &.active {
         .image {
           transform: translateX(-100%);
         }
