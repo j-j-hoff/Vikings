@@ -21,6 +21,7 @@ var slider = function () {
   var previousElement = null;
   var touchStartTime = null;
   var deltaTime = null;
+  var momentum = null;
 
   var touchHandler = function touchHandler(e) {
     slidingElement = e.srcElement.querySelector('.sliding-element.active');
@@ -46,8 +47,8 @@ var slider = function () {
       endClientY = e.touches[0].clientY;
       deltaClientX = (startClientX - endClientX) / window.innerWidth * 100;
       image.style.transform = 'translateX(-' + (100 + deltaClientX) + '%)';
+      momentum = prev - endClientX;
     } else if (e.type == "touchend" || e.type == "touchcancel") {
-      console.log(image);
       var isFlicked = isFlick();
       var duration = isFlicked ? 0.1 : 0.5;
       if (Math.abs(deltaClientX) < 55 && !isFlicked) {
@@ -79,12 +80,9 @@ var slider = function () {
   };
 
   var isFlick = function isFlick(e) {
-    deltaTime = new Date().getTime() - touchStartTime;
-    if (Math.abs(deltaClientX) >= 5 && deltaTime < 250) {
-      console.log(true);
+    if (momentum >= 10) {
       return true;
     } else {
-      console.log(false);
       return false;
     }
   };
@@ -100,6 +98,7 @@ var slider = function () {
     nextElement = null;
     previousElement = null;
     slidingElement = null;
+    momentum = null;
   };
 
   return {

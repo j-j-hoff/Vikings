@@ -19,6 +19,7 @@ const slider = (() => {
   let previousElement = null;
   let touchStartTime = null;
   let deltaTime = null;
+  let momentum = null;
 
   const touchHandler = (e) => {
     slidingElement = e.srcElement.querySelector('.sliding-element.active');
@@ -44,9 +45,8 @@ const slider = (() => {
       endClientY = e.touches[0].clientY;
       deltaClientX = ((startClientX - endClientX) / window.innerWidth) * 100;
       image.style.transform = `translateX(-${100 + deltaClientX}%)`;
-  
+      momentum = prev - endClientX;
     } else if (e.type == "touchend" || e.type == "touchcancel") {
-      console.log(image)
       const isFlicked = isFlick();
       const duration = isFlicked ? 0.1 : 0.5;
       if (Math.abs(deltaClientX) < 55 && !isFlicked) {
@@ -74,12 +74,9 @@ const slider = (() => {
   };
 
   const isFlick = (e) => {
-    deltaTime = new Date().getTime() - touchStartTime;
-    if (Math.abs(deltaClientX) >= 5 && deltaTime < 250) {
-      console.log(true);
+    if (momentum >= 10) {
       return true;
     } else {
-      console.log(false);
       return false;
     }
   };
@@ -95,6 +92,7 @@ const slider = (() => {
     nextElement = null;
     previousElement = null;
     slidingElement = null;
+    momentum = null;
   };
 
   return {
