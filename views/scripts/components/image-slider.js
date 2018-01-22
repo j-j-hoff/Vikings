@@ -28,12 +28,20 @@ const slider = (() => {
     if (prev) resetElement(prev);
   }
 
+  const isSlide = () => {
+    const w = endClientX - startClientX;
+    const h = endClientY - startClientY;
+    const atan = Math.abs(Math.atan2(h, w) / Math.PI * 180);
+    if (atan < 70 || atan > 110) return true;
+    return false;
+  };
+
   const touchmove = (e) => {
-    if (!isValidSlide()) return;
-    e.preventDefault();
     const prevVal = endClientX ? endClientX : startClientX;
     endClientX = e.touches[0].clientX;
     endClientY = e.touches[0].clientY;
+    if (!isSlide()) return;
+    e.preventDefault();
     deltaClientX = ((startClientX - endClientX) / window.innerWidth) * 100;
     slidingElement.style.transform = `translateX(-${100 + deltaClientX}%)`;
     if (next) next.style.transform = `translateX(-${0 + deltaClientX}%)`;
@@ -42,6 +50,10 @@ const slider = (() => {
   }
 
   const touchend = (e) => {
+    if (!isSlide()) {
+      resetSlider();
+      return;
+    }
     const numberOfItems = slidingElement.parentNode.children.length;
     const currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
     const isFirst = currentIndex == 0 || false;
@@ -86,13 +98,7 @@ const slider = (() => {
     if (removeClass) slidingElement.classList.remove('active');
   };
 
-  const isValidSlide = () => {
-    var angleDeg = Math.atan2(endClientY - startClientY, endClientX - startClientX);
-    return true;
-  };
-
   const isFlick = (isFirst, isLast) => {
-    console.log(momentum);
     if (momentum >= 10 && !( (deltaClientX <= 0 && isFirst) || (deltaClientX >= 0 && isLast) ) ){
       return true;
     } else {

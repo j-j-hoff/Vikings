@@ -30,12 +30,20 @@ var slider = function () {
     if (prev) resetElement(prev);
   };
 
+  var isSlide = function isSlide() {
+    var w = endClientX - startClientX;
+    var h = endClientY - startClientY;
+    var atan = Math.abs(Math.atan2(h, w) / Math.PI * 180);
+    if (atan < 70 || atan > 110) return true;
+    return false;
+  };
+
   var touchmove = function touchmove(e) {
-    if (!isValidSlide()) return;
-    e.preventDefault();
     var prevVal = endClientX ? endClientX : startClientX;
     endClientX = e.touches[0].clientX;
     endClientY = e.touches[0].clientY;
+    if (!isSlide()) return;
+    e.preventDefault();
     deltaClientX = (startClientX - endClientX) / window.innerWidth * 100;
     slidingElement.style.transform = 'translateX(-' + (100 + deltaClientX) + '%)';
     if (next) next.style.transform = 'translateX(-' + (0 + deltaClientX) + '%)';
@@ -44,6 +52,10 @@ var slider = function () {
   };
 
   var touchend = function touchend(e) {
+    if (!isSlide()) {
+      resetSlider();
+      return;
+    }
     var numberOfItems = slidingElement.parentNode.children.length;
     var currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
     var isFirst = currentIndex == 0 || false;
@@ -88,13 +100,7 @@ var slider = function () {
     if (removeClass) slidingElement.classList.remove('active');
   };
 
-  var isValidSlide = function isValidSlide() {
-    var angleDeg = Math.atan2(endClientY - startClientY, endClientX - startClientX);
-    return true;
-  };
-
   var isFlick = function isFlick(isFirst, isLast) {
-    console.log(momentum);
     if (momentum >= 10 && !(deltaClientX <= 0 && isFirst || deltaClientX >= 0 && isLast)) {
       return true;
     } else {
