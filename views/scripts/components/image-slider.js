@@ -31,14 +31,14 @@ const slider = (() => {
   const touchmove = (e) => {
     if (!isValidSlide()) return;
     e.preventDefault();
-    const prev = endClientX ? endClientX : startClientX;
+    const prevVal = endClientX ? endClientX : startClientX;
     endClientX = e.touches[0].clientX;
     endClientY = e.touches[0].clientY;
     deltaClientX = ((startClientX - endClientX) / window.innerWidth) * 100;
     slidingElement.style.transform = `translateX(-${100 + deltaClientX}%)`;
     if (next) next.style.transform = `translateX(-${0 + deltaClientX}%)`;
-    if (prev) next.style.transform = `translateX(-${200 + deltaClientX}%)`;
-    momentum = prev - endClientX;
+    if (prev) prev.style.transform = `translateX(-${200 + deltaClientX}%)`;
+    momentum = Math.abs(prevVal - endClientX);
   }
 
   const touchend = (e) => {
@@ -47,26 +47,26 @@ const slider = (() => {
     const isFirst = currentIndex == 0 || false;
     const isLast = currentIndex == numberOfItems -1 || false;
 
-    const isFlicked = isFlick();
-    const duration = isFlicked ? 0.1 : 0.5;
-    if (Math.abs(deltaClientX) < 55 && !isFlicked) {
+    const isFlicked = isFlick(isFirst, isLast);
+    const duration = isFlicked ? 0.3 : 0.5;
+    if (Math.abs(deltaClientX) < 45 && !isFlicked) {
       slider(slidingElement, duration, -100, false);
-      slider(next, duration, 0, false);
-      //slider(prev, duration, -200, false);
+      if (next) slider(next, duration, 0, false);
+      if (prev) slider(prev, duration, -200, false);
     } 
     else if (deltaClientX < 0 && !isFirst) {
       slider(slidingElement, duration, 0);
-      slider(next, duration, -100);
-      next.classList.add('active');
+      if (prev) slider(prev, duration, -100);
+      if (prev ) prev.classList.add('active');
 
     } else if (deltaClientX > 0 && !isLast) {
       slider(slidingElement, duration, -200);
-      slider(next, duration, -100);
-      next.classList.add('active');
+      if (next) slider(next, duration, -100);
+      if (next) next.classList.add('active');
     } else {
       slider(slidingElement, duration, -100, false);
-      slider(next, duration, 0, false);
-      //slider(next, duration, -200, false);
+      if (next) slider(next, duration, 0, false);
+      if (prev) slider(prev, duration, -200, false);
     }
     resetSlider();
   }
@@ -91,8 +91,9 @@ const slider = (() => {
     return true;
   };
 
-  const isFlick = (e) => {
-    if (momentum >= 10) {
+  const isFlick = (isFirst, isLast) => {
+    console.log(momentum);
+    if (momentum >= 10 && !( (deltaClientX <= 0 && isFirst) || (deltaClientX >= 0 && isLast) ) ){
       return true;
     } else {
       return false;
