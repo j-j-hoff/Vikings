@@ -8,25 +8,26 @@
     background: linear-gradient(to bottom, transparent 50%, black);
 
     .sliding-element {
+      transform: translateX(0%);
+      position: absolute;
+      z-index: -1;
+      left: 100%;
+      height: 100%;
+      width: 100%;
+
       .image {
         height: 100%;
         width: 100%;
-        position: absolute;
-        z-index: -1;
-        left: 100%;
         background-size: cover;
         background-position: center center;
-        transform: translateX(0%);
       }
 
-      .animate {
+      &.animate {
         transition: transform ease-out;
       }
 
       &.active {
-        .image {
-          transform: translateX(-100%);
-        }
+        transform: translateX(-100%);
       }
     }
   }

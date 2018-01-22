@@ -1107,20 +1107,24 @@ footer:after {
   height: 100%;
   background: linear-gradient(to bottom, transparent 50%, black);
 }
-.image-slider .images .sliding-element .image {
-  height: 100%;
-  width: 100%;
+.image-slider .images .sliding-element {
+  transform: translateX(0%);
   position: absolute;
   z-index: -1;
   left: 100%;
+  height: 100%;
+  width: 100%;
+}
+.image-slider .images .sliding-element .image {
+  height: 100%;
+  width: 100%;
   background-size: cover;
   background-position: center center;
-  transform: translateX(0%);
 }
-.image-slider .images .sliding-element .animate {
+.image-slider .images .sliding-element.animate {
   transition: transform ease-out;
 }
-.image-slider .images .sliding-element.active .image {
+.image-slider .images .sliding-element.active {
   transform: translateX(-100%);
 }
 .image-slider .slide-controllers {

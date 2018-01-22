@@ -2,9 +2,9 @@ window.addEventListener('load', function() {
   const imageSliders = document.querySelectorAll('.image-slider');
     imageSliders.forEach(imageSlider => {
       const slidingSection = imageSlider.querySelector('.images')
-      slidingSection.addEventListener("touchstart", slider.touchHandler, false);
-      slidingSection.addEventListener("touchmove", slider.touchHandler, false);
-      slidingSection.addEventListener("touchend", slider.touchHandler, false);
+      slidingSection.addEventListener("touchstart", slider.touchstart, false);
+      slidingSection.addEventListener("touchmove", slider.touchmove, false);
+      slidingSection.addEventListener("touchend", slider.touchend, false);
   });
 });
 
@@ -15,56 +15,74 @@ const slider = (() => {
   let endClientY = null;
   let deltaClientX = null;
   let slidingElement = null;
-  let nextElement = null;
-  let previousElement = null;
-  let touchStartTime = null;
-  let deltaTime = null;
   let momentum = null;
+  let next = null;
+  let prev = null;
 
-  const touchHandler = (e) => {
-    slidingElement = e.srcElement.querySelector('.sliding-element.active');
-    nextElement = slidingElement.nextSibling;
-    previousElement = slidingElement.previousSibling;
-    const image = slidingElement.querySelector('.image');
-    const slider = slide(image);
-    const nextImage = null;
-    const prevImage = null;
-    
-    if (e.type == "touchstart") {
-      startClientX = e.touches[0].clientX;
-      startClientY = e.touches[0].clientY;
-      image.classList.remove('animate');
-      image.style.transitionDuration = "0s";
-      touchStartTime = new Date().getTime();
-    } else if (e.type == "touchmove") {
-      //Should we bother?
-      if (!isValidSlide()) return;
-      e.preventDefault();
-      const prev = endClientX ? endClientX : startClientX;
-      endClientX = e.touches[0].clientX;
-      endClientY = e.touches[0].clientY;
-      deltaClientX = ((startClientX - endClientX) / window.innerWidth) * 100;
-      image.style.transform = `translateX(-${100 + deltaClientX}%)`;
-      momentum = prev - endClientX;
-    } else if (e.type == "touchend" || e.type == "touchcancel") {
-      const isFlicked = isFlick();
-      const duration = isFlicked ? 0.1 : 0.5;
-      if (Math.abs(deltaClientX) < 55 && !isFlicked) {
-        slider(duration, -100, false);
-      } else if (deltaClientX < 0) {
-        slider(duration, 0);
-      } else if (deltaClientX > 0) {
-        slider(duration, -200);
-      }
-      resetSlider();
-    }
+  const touchstart = (e) => {
+    assignElements(e);
+    startClientX = e.touches[0].clientX;
+    startClientY = e.touches[0].clientY;
+    resetElement(slidingElement);
+    if (next) resetElement(next);
+    if (prev) resetElement(prev);
   }
 
-  const slide = (image) => (duration, toPosition, removeClass = true) => {
-    console.log('körs');
-    image.classList.add('animate');
-    image.style.transitionDuration =`${duration}s`;
-    image.style.transform = `translateX(${toPosition}%)`;
+  const touchmove = (e) => {
+    if (!isValidSlide()) return;
+    e.preventDefault();
+    const prev = endClientX ? endClientX : startClientX;
+    endClientX = e.touches[0].clientX;
+    endClientY = e.touches[0].clientY;
+    deltaClientX = ((startClientX - endClientX) / window.innerWidth) * 100;
+    slidingElement.style.transform = `translateX(-${100 + deltaClientX}%)`;
+    if (next) next.style.transform = `translateX(-${0 + deltaClientX}%)`;
+    if (prev) next.style.transform = `translateX(-${200 + deltaClientX}%)`;
+    momentum = prev - endClientX;
+  }
+
+  const touchend = (e) => {
+    const numberOfItems = slidingElement.parentNode.children.length;
+    const currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
+    const isFirst = currentIndex == 0 || false;
+    const isLast = currentIndex == numberOfItems -1 || false;
+
+    const isFlicked = isFlick();
+    const duration = isFlicked ? 0.1 : 0.5;
+    if (Math.abs(deltaClientX) < 55 && !isFlicked) {
+      slider(slidingElement, duration, -100, false);
+      slider(next, duration, 0, false);
+      //slider(prev, duration, -200, false);
+    } 
+    else if (deltaClientX < 0 && !isFirst) {
+      slider(slidingElement, duration, 0);
+      slider(next, duration, -100);
+      next.classList.add('active');
+
+    } else if (deltaClientX > 0 && !isLast) {
+      slider(slidingElement, duration, -200);
+      slider(next, duration, -100);
+      next.classList.add('active');
+    } else {
+      slider(slidingElement, duration, -100, false);
+      slider(next, duration, 0, false);
+      //slider(next, duration, -200, false);
+    }
+    resetSlider();
+  }
+
+  const assignElements = (e) => {
+    slidingElement = e.srcElement.querySelector('.sliding-element.active');
+    const children = e.srcElement.children;
+    const index = Array.prototype.slice.call(children).indexOf(slidingElement);
+    if (index !== children.length - 1) next = slidingElement.parentNode.children[index + 1];
+    if (index !== 0) prev = slidingElement.parentNode.children[index - 1];
+  };
+
+  const slider = (element, duration, toPosition, removeClass = true) => {
+    element.classList.add('animate');
+    element.style.transitionDuration =`${duration}s`;
+    element.style.transform = `translateX(${toPosition}%)`;
     if (removeClass) slidingElement.classList.remove('active');
   };
 
@@ -81,21 +99,26 @@ const slider = (() => {
     }
   };
 
+  const resetElement = (element) => {
+    element.classList.remove('animate');
+    element.style.transitionDuration = "0s";
+  }
+
   const resetSlider = () => {
-    touchStartTime = null;
-    deltaTime = null;
     startClientX = null;
     startClientY = null;
     endClientX = null;
     endClientY = null;
     deltaClientX = null;
-    nextElement = null;
-    previousElement = null;
     slidingElement = null;
     momentum = null;
+    next = null;
+    prev = null;
   };
 
   return {
-    touchHandler: touchHandler,
+    touchstart: touchstart,
+    touchmove: touchmove,
+    touchend: touchend,
   }
 })();
