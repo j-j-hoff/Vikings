@@ -762,6 +762,7 @@ header .content {
 @media (min-width: 768px) {
   header .content {
     padding: 1rem 0;
+    float: left;
   }
 }
 header .content > a,
@@ -787,6 +788,11 @@ header .content #nav-trigger {
   float: right;
   box-sizing: border-box;
   text-align: center;
+}
+@media (min-width: 768px) {
+  header .content #nav-trigger {
+    display: none;
+  }
 }
 header .content #nav-trigger img {
   width: 80%;
@@ -893,6 +899,16 @@ footer:after {
   top: 0;
   background-color: #292929;
 }
+@media (min-width: 768px) {
+  #menu-component {
+    display: block;
+    position: initial;
+    background-color: transparent;
+    width: initial;
+    height: initial;
+    line-height: 5rem;
+  }
+}
 #menu-component label {
   height: 4rem;
   width: 4rem;
@@ -909,83 +925,110 @@ footer:after {
   width: 100%;
   height: 100%;
 }
+@media (min-width: 768px) {
+  #menu-component label {
+    display: none;
+  }
+}
 #menu-component ul {
   padding-left: 0;
   padding-top: 25vh;
 }
 @media (min-width: 768px) {
   #menu-component ul {
-    width: 40%;
-    margin: 0 auto;
+    margin: 0 0 0 2rem;
+    padding: 0;
   }
 }
 #menu-component ul li {
-  opacity: 0;
-  /* make things invisible upon start */
-  -webkit-animation: fadeIn ease-in 1;
-  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-  -moz-animation: fadeIn ease-in 1;
-  animation: fadeIn ease-in 1;
-  -webkit-animation-fill-mode: forwards;
-  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: 0.5s;
-  -moz-animation-duration: 0.5s;
-  animation-duration: 0.5s;
   margin: 1rem 0;
   font-family: 'norseregular';
   list-style: none;
   font-size: 5rem;
   border-bottom: 2px solid #000;
 }
-@-webkit-keyframes fadeIn {
-  from {
+@media (max-width: 768px) {
+  #menu-component ul li {
     opacity: 0;
+    /* make things invisible upon start */
+    -webkit-animation: fadeIn ease-in 1;
+    /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-duration: 0.5s;
+    animation-duration: 0.5s;
   }
-  to {
-    opacity: 1;
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
-}
-@-moz-keyframes fadeIn {
-  from {
-    opacity: 0;
+  @-moz-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
-  to {
-    opacity: 1;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  #menu-component ul li:nth-child(1) {
+    -webkit-animation-delay: 210ms;
+    -moz-animation-delay: 210ms;
+    animation-delay: 210ms;
   }
-  to {
-    opacity: 1;
+  #menu-component ul li:nth-child(2) {
+    -webkit-animation-delay: 320ms;
+    -moz-animation-delay: 320ms;
+    animation-delay: 320ms;
   }
-}
-#menu-component ul li:nth-child(1) {
-  -webkit-animation-delay: 210ms;
-  -moz-animation-delay: 210ms;
-  animation-delay: 210ms;
-}
-#menu-component ul li:nth-child(2) {
-  -webkit-animation-delay: 320ms;
-  -moz-animation-delay: 320ms;
-  animation-delay: 320ms;
-}
-#menu-component ul li:nth-child(3) {
-  -webkit-animation-delay: 430ms;
-  -moz-animation-delay: 430ms;
-  animation-delay: 430ms;
+  #menu-component ul li:nth-child(3) {
+    -webkit-animation-delay: 430ms;
+    -moz-animation-delay: 430ms;
+    animation-delay: 430ms;
+  }
 }
 @media (min-width: 768px) {
   #menu-component ul li {
-    margin: 3rem 0;
+    border-bottom: none;
+    display: inline-block;
+    margin: 0 2rem;
+    font-size: 4rem;
+    position: relative;
   }
 }
 #menu-component ul li a {
   display: block;
   padding: 1rem 0;
+}
+#menu-component ul li a:before {
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: rgba(41, 41, 41, 0.4);
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+#menu-component ul li a:hover:before {
+  width: 100%;
 }
 .button-component {
   text-align: center;

@@ -21,6 +21,7 @@ header {
 
     @media (min-width: @screen-sm) {
       padding: 1rem 0;
+      float: left;
     }
 
     > a, label {
@@ -46,6 +47,10 @@ header {
       float: right;
       box-sizing: border-box;
       text-align: center;
+
+      @media (min-width: @screen-sm) {
+        display: none;
+      }
 
       img {
         width: 80%;
