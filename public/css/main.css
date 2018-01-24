@@ -1106,7 +1106,6 @@ footer:after {
 }
 .image-slider .images {
   height: 100%;
-  background: linear-gradient(to bottom, transparent 50%, black);
 }
 .image-slider .images .sliding-element {
   transform: translateX(0%);
@@ -1115,6 +1114,13 @@ footer:after {
   left: 100%;
   height: 100%;
   width: 100%;
+}
+.image-slider .images .sliding-element .image-overlay {
+  position: absolute;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent 50%, black);
 }
 .image-slider .images .sliding-element .image {
   height: 100%;
@@ -1127,6 +1133,9 @@ footer:after {
 }
 .image-slider .images .sliding-element.active {
   transform: translateX(-100%);
+}
+.image-slider .images .sliding-element .content {
+  z-index: 3;
 }
 .image-slider .slide-controllers {
   position: relative;
@@ -1141,6 +1150,8 @@ footer:after {
   .image-slider .slide-controllers img {
     height: 8rem;
     margin: 0 1.5rem;
+    background-color: rgba(41, 41, 41, 0.4);
+    padding: 1.5rem;
   }
 }
 .image-slider .slide-controllers img:first-of-type {
@@ -1148,6 +1159,9 @@ footer:after {
 }
 .image-slider .slide-controllers img:last-of-type {
   float: right;
+}
+.image-slider .slide-controllers img:hover {
+  cursor: pointer;
 }
 /* Mixins */
 /* View Mixins */
