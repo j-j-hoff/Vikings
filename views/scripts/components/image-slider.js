@@ -5,6 +5,8 @@ window.addEventListener('load', function() {
       slidingSection.addEventListener("touchstart", slider.touchstart, false);
       slidingSection.addEventListener("touchmove", slider.touchmove, false);
       slidingSection.addEventListener("touchend", slider.touchend, false);
+      imageSlider.querySelector('.btnPrev').addEventListener('click', slider.slidePrev);
+      imageSlider.querySelector('.btnNext').addEventListener('click', slider.slideNext);
   });
 });
 
@@ -19,8 +21,35 @@ const slider = (() => {
   let next = null;
   let prev = null;
 
+  const slideNext = (e) => {
+    resetSlider();
+    const parent = e.srcElement.parentNode.parentNode.querySelector('.images');
+    assignElements(parent);
+    resetElement(slidingElement);
+    if (next) resetElement(next);
+    if (prev) resetElement(prev);
+    const numberOfItems = slidingElement.parentNode.children.length;
+    const currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
+    const isLast = currentIndex == numberOfItems -1 || false;
+    if (!isLast) slideToNext(0.5);
+  };
+
+  const slidePrev = (e) => {
+    resetSlider();
+    const parent = e.srcElement.parentNode.parentNode.querySelector('.images');
+    assignElements(parent);
+    resetElement(slidingElement);
+    if (next) resetElement(next);
+    if (prev) resetElement(prev);
+    const numberOfItems = slidingElement.parentNode.children.length;
+    const currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
+    const isFirst = currentIndex == 0 || false;
+    if (!isFirst) slideToPrev(0.5);
+  };
+
   const touchstart = (e) => {
-    assignElements(e);
+    resetSlider();
+    assignElements(e.srcElement);
     startClientX = e.touches[0].clientX;
     startClientY = e.touches[0].clientY;
     resetElement(slidingElement);
@@ -51,7 +80,6 @@ const slider = (() => {
 
   const touchend = (e) => {
     if (!isSlide()) {
-      resetSlider();
       return;
     }
     const numberOfItems = slidingElement.parentNode.children.length;
@@ -67,25 +95,31 @@ const slider = (() => {
       if (prev) slider(prev, duration, -200, false);
     } 
     else if (deltaClientX < 0 && !isFirst) {
-      slider(slidingElement, duration, 0);
-      if (prev) slider(prev, duration, -100);
-      if (prev ) prev.classList.add('active');
-
+      slideToPrev(duration);
     } else if (deltaClientX > 0 && !isLast) {
-      slider(slidingElement, duration, -200);
-      if (next) slider(next, duration, -100);
-      if (next) next.classList.add('active');
+      slideToNext(duration);
     } else {
       slider(slidingElement, duration, -100, false);
       if (next) slider(next, duration, 0, false);
       if (prev) slider(prev, duration, -200, false);
     }
-    resetSlider();
   }
 
-  const assignElements = (e) => {
-    slidingElement = e.srcElement.querySelector('.sliding-element.active');
-    const children = e.srcElement.children;
+  const slideToPrev = (duration) => {
+    slider(slidingElement, duration, 0);
+    if (prev) slider(prev, duration, -100);
+    if (prev ) prev.classList.add('active');
+  } 
+
+  const slideToNext = (duration) => {
+    slider(slidingElement, duration, -200);
+    if (next) slider(next, duration, -100);
+    if (next) next.classList.add('active');
+  };
+
+  const assignElements = (parent) => {
+    slidingElement = parent.querySelector('.sliding-element.active');
+    const children = parent.children;
     const index = Array.prototype.slice.call(children).indexOf(slidingElement);
     if (index !== children.length - 1) next = slidingElement.parentNode.children[index + 1];
     if (index !== 0) prev = slidingElement.parentNode.children[index - 1];
@@ -127,5 +161,7 @@ const slider = (() => {
     touchstart: touchstart,
     touchmove: touchmove,
     touchend: touchend,
+    slidePrev: slidePrev,
+    slideNext: slideNext,
   }
 })();

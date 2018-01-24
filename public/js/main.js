@@ -7,6 +7,8 @@ window.addEventListener('load', function () {
     slidingSection.addEventListener("touchstart", slider.touchstart, false);
     slidingSection.addEventListener("touchmove", slider.touchmove, false);
     slidingSection.addEventListener("touchend", slider.touchend, false);
+    imageSlider.querySelector('.btnPrev').addEventListener('click', slider.slidePrev);
+    imageSlider.querySelector('.btnNext').addEventListener('click', slider.slideNext);
   });
 });
 
@@ -21,8 +23,35 @@ var slider = function () {
   var next = null;
   var prev = null;
 
+  var slideNext = function slideNext(e) {
+    resetSlider();
+    var parent = e.srcElement.parentNode.parentNode.querySelector('.images');
+    assignElements(parent);
+    resetElement(slidingElement);
+    if (next) resetElement(next);
+    if (prev) resetElement(prev);
+    var numberOfItems = slidingElement.parentNode.children.length;
+    var currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
+    var isLast = currentIndex == numberOfItems - 1 || false;
+    if (!isLast) slideToNext(0.5);
+  };
+
+  var slidePrev = function slidePrev(e) {
+    resetSlider();
+    var parent = e.srcElement.parentNode.parentNode.querySelector('.images');
+    assignElements(parent);
+    resetElement(slidingElement);
+    if (next) resetElement(next);
+    if (prev) resetElement(prev);
+    var numberOfItems = slidingElement.parentNode.children.length;
+    var currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
+    var isFirst = currentIndex == 0 || false;
+    if (!isFirst) slideToPrev(0.5);
+  };
+
   var touchstart = function touchstart(e) {
-    assignElements(e);
+    resetSlider();
+    assignElements(e.srcElement);
     startClientX = e.touches[0].clientX;
     startClientY = e.touches[0].clientY;
     resetElement(slidingElement);
@@ -53,7 +82,6 @@ var slider = function () {
 
   var touchend = function touchend(e) {
     if (!isSlide()) {
-      resetSlider();
       return;
     }
     var numberOfItems = slidingElement.parentNode.children.length;
@@ -68,24 +96,31 @@ var slider = function () {
       if (next) slider(next, duration, 0, false);
       if (prev) slider(prev, duration, -200, false);
     } else if (deltaClientX < 0 && !isFirst) {
-      slider(slidingElement, duration, 0);
-      if (prev) slider(prev, duration, -100);
-      if (prev) prev.classList.add('active');
+      slideToPrev(duration);
     } else if (deltaClientX > 0 && !isLast) {
-      slider(slidingElement, duration, -200);
-      if (next) slider(next, duration, -100);
-      if (next) next.classList.add('active');
+      slideToNext(duration);
     } else {
       slider(slidingElement, duration, -100, false);
       if (next) slider(next, duration, 0, false);
       if (prev) slider(prev, duration, -200, false);
     }
-    resetSlider();
   };
 
-  var assignElements = function assignElements(e) {
-    slidingElement = e.srcElement.querySelector('.sliding-element.active');
-    var children = e.srcElement.children;
+  var slideToPrev = function slideToPrev(duration) {
+    slider(slidingElement, duration, 0);
+    if (prev) slider(prev, duration, -100);
+    if (prev) prev.classList.add('active');
+  };
+
+  var slideToNext = function slideToNext(duration) {
+    slider(slidingElement, duration, -200);
+    if (next) slider(next, duration, -100);
+    if (next) next.classList.add('active');
+  };
+
+  var assignElements = function assignElements(parent) {
+    slidingElement = parent.querySelector('.sliding-element.active');
+    var children = parent.children;
     var index = Array.prototype.slice.call(children).indexOf(slidingElement);
     if (index !== children.length - 1) next = slidingElement.parentNode.children[index + 1];
     if (index !== 0) prev = slidingElement.parentNode.children[index - 1];
@@ -128,6 +163,8 @@ var slider = function () {
   return {
     touchstart: touchstart,
     touchmove: touchmove,
-    touchend: touchend
+    touchend: touchend,
+    slidePrev: slidePrev,
+    slideNext: slideNext
   };
 }();
