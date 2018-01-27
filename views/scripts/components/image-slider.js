@@ -21,9 +21,10 @@ const slider = (() => {
   let next = null;
   let prev = null;
 
-  const slideNext = (e) => {
+  const slideNext = (event) => {
     resetSlider();
-    const parent = e.srcElement.parentNode.parentNode.querySelector('.images');
+    const eventSrc = event.target || event.srcElement;
+    const parent = eventSrc.parentNode.parentNode.querySelector('.images');
     assignElements(parent);
     resetElement(slidingElement);
     if (next) resetElement(next);
@@ -34,9 +35,10 @@ const slider = (() => {
     if (!isLast) slideToNext(0.5);
   };
 
-  const slidePrev = (e) => {
+  const slidePrev = (event) => {
     resetSlider();
-    const parent = e.srcElement.parentNode.parentNode.querySelector('.images');
+    const eventSrc = event.target || event.srcElement;
+    const parent = eventSrc.parentNode.parentNode.querySelector('.images');
     assignElements(parent);
     resetElement(slidingElement);
     if (next) resetElement(next);
@@ -47,11 +49,12 @@ const slider = (() => {
     if (!isFirst) slideToPrev(0.5);
   };
 
-  const touchstart = (e) => {
+  const touchstart = (event) => {
     resetSlider();
-    assignElements(e.srcElement);
-    startClientX = e.touches[0].clientX;
-    startClientY = e.touches[0].clientY;
+    const eventSrc = event.target || event.srcElement;
+    assignElements(eventSrc);
+    startClientX = event.touches[0].clientX;
+    startClientY = event.touches[0].clientY;
     resetElement(slidingElement);
     if (next) resetElement(next);
     if (prev) resetElement(prev);
@@ -65,12 +68,12 @@ const slider = (() => {
     return false;
   };
 
-  const touchmove = (e) => {
+  const touchmove = (event) => {
     const prevVal = endClientX ? endClientX : startClientX;
-    endClientX = e.touches[0].clientX;
-    endClientY = e.touches[0].clientY;
+    endClientX = event.touches[0].clientX;
+    endClientY = event.touches[0].clientY;
     if (!isSlide()) return;
-    e.preventDefault();
+    event.preventDefault();
     deltaClientX = ((startClientX - endClientX) / window.innerWidth) * 100;
     slidingElement.style.transform = `translateX(-${100 + deltaClientX}%)`;
     if (next) next.style.transform = `translateX(-${0 + deltaClientX}%)`;

@@ -23,9 +23,10 @@ var slider = function () {
   var next = null;
   var prev = null;
 
-  var slideNext = function slideNext(e) {
+  var slideNext = function slideNext(event) {
     resetSlider();
-    var parent = e.srcElement.parentNode.parentNode.querySelector('.images');
+    var eventSrc = event.target || event.srcElement;
+    var parent = eventSrc.parentNode.parentNode.querySelector('.images');
     assignElements(parent);
     resetElement(slidingElement);
     if (next) resetElement(next);
@@ -36,9 +37,10 @@ var slider = function () {
     if (!isLast) slideToNext(0.5);
   };
 
-  var slidePrev = function slidePrev(e) {
+  var slidePrev = function slidePrev(event) {
     resetSlider();
-    var parent = e.srcElement.parentNode.parentNode.querySelector('.images');
+    var eventSrc = event.target || event.srcElement;
+    var parent = eventSrc.parentNode.parentNode.querySelector('.images');
     assignElements(parent);
     resetElement(slidingElement);
     if (next) resetElement(next);
@@ -49,11 +51,12 @@ var slider = function () {
     if (!isFirst) slideToPrev(0.5);
   };
 
-  var touchstart = function touchstart(e) {
+  var touchstart = function touchstart(event) {
     resetSlider();
-    assignElements(e.srcElement);
-    startClientX = e.touches[0].clientX;
-    startClientY = e.touches[0].clientY;
+    var eventSrc = event.target || event.srcElement;
+    assignElements(eventSrc);
+    startClientX = event.touches[0].clientX;
+    startClientY = event.touches[0].clientY;
     resetElement(slidingElement);
     if (next) resetElement(next);
     if (prev) resetElement(prev);
@@ -67,12 +70,12 @@ var slider = function () {
     return false;
   };
 
-  var touchmove = function touchmove(e) {
+  var touchmove = function touchmove(event) {
     var prevVal = endClientX ? endClientX : startClientX;
-    endClientX = e.touches[0].clientX;
-    endClientY = e.touches[0].clientY;
+    endClientX = event.touches[0].clientX;
+    endClientY = event.touches[0].clientY;
     if (!isSlide()) return;
-    e.preventDefault();
+    event.preventDefault();
     deltaClientX = (startClientX - endClientX) / window.innerWidth * 100;
     slidingElement.style.transform = 'translateX(-' + (100 + deltaClientX) + '%)';
     if (next) next.style.transform = 'translateX(-' + (0 + deltaClientX) + '%)';
