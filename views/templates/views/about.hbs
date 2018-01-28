@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body id="about">
+    {{>header}}
+    <section class="top-section">
+      <div class="content">
+        <h1>About us</h1>
+        <h2>Contact & general info</h2>
+      </div>
+    </section>
+    <section class="jomsborg-section">
+      <div class="content">
+        <h2>Part of Jomsborg</h2>
+        <img src="../img/viking-icon.svg"/>
+        <h3>Jomsborg</h3>
+        <p>Bacon ipsum dolor amet hamburger beribs kevin fatback, rump bresaola filet mignon tongue brisket. 
+          Pig ball tip venison brisket. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
+          turkey tenderloin cupim. Short ribs pancetta hamburger boudin. Meatball leberkas pork belly brisket biltong. 
+          Sirloin burgdoggen pastrami bacon. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
+          turkey tenderloin cupim. Short ribs pancetta hamburger boudin. Meatball leberkas pork belly brisket biltong. 
+          Sirloin burgdoggen pastrami bacon.
+        </p>
+      </div>
+    </section>
+
+    <section class="training-section">
+      <div class="content">
+        <h2>Training</h2>
+        <h3>Sword <span class="no-wrap">· Axe</span> <span class="no-wrap">· Spear</span></h3>
+        <p>Bacon ipsum dolor amet hamburger beribs kevin fatback, rump bresaola filet mignon tongue brisket. 
+          Pig ball tip venison brisket. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
+          turkey tenderloin cupim. Short ribs pancetta hamburger boudin. Meatball leberkas pork belly brisket biltong. 
+          Sirloin burgdoggen pastrami bacon. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
+          turkey tenderloin cupim. Short ribs pancetta hamburger boudin. Meatball leberkas pork belly brisket biltong. 
+          Sirloin burgdoggen pastrami bacon.
+        </p>
+      </div>
+    </section>
+
+    <section class="join-us-section">
+        {{>contact-form
+          h2='Become a viking' 
+          h3="Join us"
+        }}
+    </section>
+    {{>footer}}
+    <script src="/js/main.js"></script>
+  </body>
+</html>

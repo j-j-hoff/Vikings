@@ -740,6 +740,162 @@ a {
   padding: 0;
   padding-top: 15vh;
 }
+#about .top-section {
+  position: relative;
+  z-index: -1;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, transparent 50%, black), url('../img/lineup.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+#about .top-section .content {
+  padding: 0;
+  padding-top: 15vh;
+}
+#about .top-section .content h1,
+#about .top-section .content h2 {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #about .top-section .content {
+    padding-top: 45vh;
+  }
+}
+#about .top-section .content {
+  position: absolute;
+  bottom: 9rem;
+}
+#about .top-section .content h1,
+#about .top-section .content h2 {
+  text-align: left;
+}
+#about .jomsborg-section {
+  min-height: 100vh;
+  min-height: 90vh;
+  background-color: #292929;
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  #about .jomsborg-section .content {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1200px) {
+  #about .jomsborg-section .content {
+    width: 50%;
+  }
+}
+#about .jomsborg-section img {
+  display: block;
+  height: 5rem;
+  width: 5rem;
+  margin: 2rem auto 0 auto;
+}
+@media (min-width: 768px) {
+  #about .jomsborg-section img {
+    height: 7rem;
+    width: 7rem;
+    margin-bottom: 8rem;
+  }
+}
+#about .jomsborg-section h2 {
+  font-size: 5rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #about .jomsborg-section h2 {
+    font-size: 6rem;
+  }
+}
+#about .jomsborg-section h3 {
+  color: #FF5151;
+  font-size: 5rem;
+  margin-bottom: 0;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  #about .jomsborg-section h3 {
+    float: left;
+    margin-top: 0;
+    line-height: 1;
+    margin-right: 1rem;
+    font-size: 7rem;
+  }
+}
+#about .jomsborg-section p {
+  color: #fff;
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  #about .jomsborg-section p:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+#about .training-section {
+  min-height: 90vh;
+  background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
+  background-size: cover;
+  background-position: center left;
+}
+@media (min-width: 768px) {
+  #about .training-section {
+    background-position: center center;
+  }
+}
+@media (min-width: 768px) {
+  #about .training-section .content {
+    float: left;
+    margin-left: 10%;
+    text-align: left;
+  }
+}
+@media (min-width: 768px) {
+  #about .training-section .content {
+    width: 50%;
+    padding-top: 14vh;
+  }
+}
+@media (min-width: 1200px) {
+  #about .training-section .content {
+    width: 40%;
+  }
+}
+#about .training-section .content h2 {
+  margin-bottom: 0;
+  font-size: 6rem;
+}
+#about .training-section .content h3 {
+  color: #FF5151;
+  font-size: 3rem;
+  margin-top: 0;
+}
+#about .training-section .content p {
+  margin-top: 10vh;
+  text-align: left;
+}
+#about .training-section:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+#about .join-us-section {
+  background-color: #000;
+}
+#about .join-us-section .content {
+  padding: 0 1.5rem;
+  margin: 0;
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+}
+#about .join-us-section .content > div {
+  padding: 0;
+  padding-top: 15vh;
+}
 /* Components */
 header {
   position: absolute;

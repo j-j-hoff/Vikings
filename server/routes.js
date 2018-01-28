@@ -40,8 +40,13 @@ const hireUs = () => {
   return getView('hire-us')();
 }
 
+const about = () => {
+  return getView('about')();
+}
+
 module.exports = {
   start,
   reanactment,
-  hireUs
+  hireUs,
+  about
 };

@@ -1,0 +1,42 @@
+#about {
+  .top-section {
+    position: relative;
+    z-index: -1;
+    .top-section('../img/lineup.jpg');
+    .content {
+      position: absolute;
+      bottom: 9rem;
+
+      h1,
+      h2 {
+        text-align: left;
+      }
+    }
+  }
+
+  .jomsborg-section {
+    min-height: 100vh;
+    .text-section();
+  }
+
+  .training-section {
+    .text-and-image-section('left', '../img/fighters.png');
+  }
+
+  .join-us-section {
+    background-color: @dark-dark;
+
+    .content {
+      padding: 0 1.5rem;
+      margin: 0;
+      display: table;
+      width: 100%;
+      box-sizing: border-box;
+
+      > div {
+        padding: 0;
+        padding-top: 15vh;
+      }
+    }
+  }
+}

@@ -171,3 +171,19 @@ var slider = function () {
     slideNext: slideNext
   };
 }();
+
+document.getElementById('open-close-menu').addEventListener('change', hideShowMenu);
+document.getElementById('open-close-menu').addEventListener('change', hideShowMenu);
+var hideShowMenu = function hideShowMenu(e) {
+  console.log('körs');
+  var body = document.getElementsByTagName('body');
+  if (undefined.checked) {
+    console.log(body);
+    console.log('gömd');
+    body.style.overflow = "hidden";
+  } else {
+    console.log(body);
+    console.log('inte gömd');
+    body.style.overflow = "initial";
+  }
+};
