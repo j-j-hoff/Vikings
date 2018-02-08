@@ -1,10 +1,10 @@
 <header>
   <input type="checkbox" name="open-close-menu" id="open-close-menu">
   <div class="content">
-    <a href="/" id="logo">
-      <img src="../img/logo.svg"/>
+    <a href="./index.html" id="logo">
+      <img src="./img/logo.svg"/>
     </a>
-    <label id="nav-trigger" for="open-close-menu"><img src="../img/hamburger.svg"/></label>
+    <label id="nav-trigger" for="open-close-menu"><img src="./img/hamburger.svg"/></label>
   </div>
   {{>menu}}
 </header>

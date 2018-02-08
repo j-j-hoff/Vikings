@@ -1,9 +1,5 @@
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
+  {{>head title='Hire us'}}
   <body id="hire-us">
     {{>header}}
     <section class="top-section">
@@ -15,7 +11,7 @@
 
     <section class="hire-section">
       <div class="content">
-        <img src="../img/viking-icon.svg"/>
+        <img src="./img/viking-icon.svg"/>
         <h3>Hire us</h3>
         <p>Bacon ipsum dolor amet hamburger beribs kevin fatback, rump bresaola filet mignon tongue brisket. 
           Pig ball tip venison brisket. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
@@ -32,7 +28,7 @@
         images= '{
         "images":[
           { 
-            "url": "../img/profile.jpg", 
+            "url": "./img/profile.jpg", 
             "heading":"Movies",
             "text": "Bacon ipsum dolor amet hamburger beribs kevin fatback. Bacon ipsum dolor amet hamburger beribs kevin fatback."
           }
@@ -42,7 +38,7 @@
 
     <section class="hire-section">
       <div class="content">
-        <img src="../img/viking-icon.svg"/>
+        <img src="./img/viking-icon.svg"/>
         <h3>Hire us</h3>
         <p>Bacon ipsum dolor amet hamburger beribs kevin fatback, rump bresaola filet mignon tongue brisket. 
           Pig ball tip venison brisket. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
@@ -59,7 +55,7 @@
         images= '{
         "images":[
           { 
-            "url": "../img/fighting.jpg", 
+            "url": "./img/fighting.jpg", 
             "heading":"Shows",
             "text": "Bacon ipsum dolor amet hamburger beribs kevin fatback. Bacon ipsum dolor amet hamburger beribs kevin fatback."
           }
@@ -74,6 +70,6 @@
       }}
     </section>
     {{>footer}}
-    <script src="/js/main.js"></script>
+    {{>scripts}}
   </body>
 </html>

@@ -1,9 +1,5 @@
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
+  {{>head title='Renactment'}}
   <body id="reanactment">
     {{>header}}
     <section class="top-section">
@@ -14,7 +10,7 @@
     </section>
     <section class="vikings-section">
       <div class="content">
-        <img src="../img/viking-icon.svg"/>
+        <img src="./img/viking-icon.svg"/>
         <h3>Vikings</h3>
         <p>Bacon ipsum dolor amet hamburger beribs kevin fatback, rump bresaola filet mignon tongue brisket. 
           Pig ball tip venison brisket. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
@@ -31,12 +27,12 @@
         images= '{
         "images":[
           { 
-            "url": "../img/horse.jpg", 
+            "url": "./img/horse.jpg", 
             "heading":"Vikings",
             "text": "Bacon ipsum dolor amet hamburger beribs kevin fatback. Bacon ipsum dolor amet hamburger beribs kevin fatback."
           },
           { 
-            "url": "../img/profile.jpg", 
+            "url": "./img/profile.jpg", 
             "heading":"Vikings",
             "text": "Bacon ipsum dolor amet hamburger beribs kevin fatback. Bacon ipsum dolor amet hamburger beribs kevin fatback."
           }
@@ -46,7 +42,7 @@
 
     <section class="historical-section">
       <div class="content">
-        <img src="../img/viking-icon.svg"/>
+        <img src="./img/viking-icon.svg"/>
         <h3>Historical</h3>
         <p>Bacon ipsum dolor amet hamburger beribs kevin fatback, rump bresaola filet mignon tongue brisket. 
           Pig ball tip venison brisket. Venison shankle boudin strip steak porchetta short ribs t-bone short loin 
@@ -93,6 +89,6 @@
         }}
     </section>
     {{>footer}}
-    <script src="/js/main.js"></script>
+    {{>scripts}}
   </body>
 </html>
