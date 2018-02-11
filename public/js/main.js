@@ -1,15 +1,21 @@
 'use strict';
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 window.addEventListener('load', function () {
   var imageSliders = document.querySelectorAll('.image-slider');
   if (!imageSliders) return;
   imageSliders.forEach(function (imageSlider) {
     var slidingSection = imageSlider.querySelector('.images');
+    if (slidingSection.querySelectorAll('.sliding-element').length < 2) return;
+
+    var btnNext = imageSlider.querySelector('.btnNext');
+    btnNext.style.visibility = 'visible';
     slidingSection.addEventListener("touchstart", slider.touchstart, false);
     slidingSection.addEventListener("touchmove", slider.touchmove, false);
     slidingSection.addEventListener("touchend", slider.touchend, false);
     imageSlider.querySelector('.btnPrev').addEventListener('click', slider.slidePrev);
-    imageSlider.querySelector('.btnNext').addEventListener('click', slider.slideNext);
+    btnNext.addEventListener('click', slider.slideNext);
   });
 });
 
@@ -25,20 +31,36 @@ var slider = function () {
   var prev = null;
 
   var slideNext = function slideNext(event) {
-    resetSlider();
-    var eventSrc = event.target || event.srcElement;
-    var parent = eventSrc.parentNode.parentNode.querySelector('.images');
-    assignElements(parent);
-    resetElement(slidingElement);
-    if (next) resetElement(next);
-    if (prev) resetElement(prev);
-    var numberOfItems = slidingElement.parentNode.children.length;
-    var currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
+    var _mainSlider = mainSlider(event),
+        _mainSlider2 = _slicedToArray(_mainSlider, 2),
+        numberOfItems = _mainSlider2[0],
+        currentIndex = _mainSlider2[1];
+
     var isLast = currentIndex == numberOfItems - 1 || false;
+    var willBeLast = currentIndex + 1 >= numberOfItems - 1 || false;
+    var btnNext = slidingElement.parentNode.parentNode.querySelector('.btnNext');
+    var btnPrev = slidingElement.parentNode.parentNode.querySelector('.btnPrev');
+    btnPrev.style.visibility = 'visible';
+    btnNext.style.visibility = willBeLast ? 'hidden' : 'visible';
     if (!isLast) slideToNext(0.5);
   };
 
   var slidePrev = function slidePrev(event) {
+    var _mainSlider3 = mainSlider(event),
+        _mainSlider4 = _slicedToArray(_mainSlider3, 2),
+        numberOfItems = _mainSlider4[0],
+        currentIndex = _mainSlider4[1];
+
+    var isFirst = currentIndex == 0 || false;
+    var willBeFirst = currentIndex - 1 <= 0 || false;
+    var btnNext = slidingElement.parentNode.parentNode.querySelector('.btnNext');
+    var btnPrev = slidingElement.parentNode.parentNode.querySelector('.btnPrev');
+    btnNext.style.visibility = 'visible';
+    btnPrev.style.visibility = willBeFirst ? 'hidden' : 'visible';
+    if (!isFirst) slideToPrev(0.5);
+  };
+
+  var mainSlider = function mainSlider(event) {
     resetSlider();
     var eventSrc = event.target || event.srcElement;
     var parent = eventSrc.parentNode.parentNode.querySelector('.images');
@@ -48,8 +70,7 @@ var slider = function () {
     if (prev) resetElement(prev);
     var numberOfItems = slidingElement.parentNode.children.length;
     var currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
-    var isFirst = currentIndex == 0 || false;
-    if (!isFirst) slideToPrev(0.5);
+    return [numberOfItems, currentIndex];
   };
 
   var touchstart = function touchstart(event) {
@@ -184,3 +205,50 @@ function hideShowMenu(e) {
     body.style.position = "initial";
   }
 }
+
+window.addEventListener('load', function () {
+  var videos = document.querySelectorAll('.video-component');
+  if (!videos) return;
+  videos.forEach(function (video) {
+    videoPlayer.init(video);
+  });
+});
+
+var videoPlayer = function () {
+  var player = null;
+  var videoComponent = null;
+
+  var init = function init(video) {
+    videoComponent = video;
+    createPlayer();
+    video.querySelector('.video-play-icon').addEventListener('click', showVideo);
+    video.querySelector('.close-video').addEventListener('click', closeVideo);
+    var parent = video.parentNode.parentNode.parentNode;
+    var btnPrev = parent.querySelector('.btnPrev');
+    var btnNext = parent.querySelector('.btnPrev');
+    if (btnNext) btnNext.addEventListener('click', closeVideo);
+    if (btnPrev) btnPrev.addEventListener('click', closeVideo);
+  };
+
+  var createPlayer = function createPlayer() {
+    var videoId = videoComponent.dataset.videoId;
+    player = new YT.Player(videoComponent.querySelector('.video-slot'), {
+      videoId: videoId
+    });
+  };
+
+  var showVideo = function showVideo(event) {
+    var eventSrc = event.target || event.srcElement;
+    var vidoeOverlay = videoComponent.querySelector('.video-overlay');
+    vidoeOverlay.style.display = 'flex';
+    player.playVideo();
+  };
+
+  var closeVideo = function closeVideo(event) {
+    player.stopVideo();
+    var vidoeOverlay = videoComponent.querySelector('.video-overlay');
+    vidoeOverlay.style.display = 'none';
+  };
+
+  return { init: init };
+}();

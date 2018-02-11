@@ -5,6 +5,9 @@
       <div class="sliding-element {{#ifCond @index 0}}active{{/ifCond}}">
         <div class="image-overlay"></div>
         <div class="image" style="background-image:url({{this.url}})"></div>
+        {{#if this.isVideo}}
+            {{> video video-id=this.video-id}}
+        {{/if}}
         <div class="content">
             <h3>{{this.heading}}</h3>
             <p>{{this.text}}</p>

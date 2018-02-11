@@ -3,11 +3,15 @@ window.addEventListener('load', function() {
   if (!imageSliders) return;
     imageSliders.forEach(imageSlider => {
       const slidingSection = imageSlider.querySelector('.images')
+      if (slidingSection.querySelectorAll('.sliding-element').length < 2) return;
+
+      const btnNext = imageSlider.querySelector('.btnNext');
+      btnNext.style.visibility = 'visible';
       slidingSection.addEventListener("touchstart", slider.touchstart, false);
       slidingSection.addEventListener("touchmove", slider.touchmove, false);
       slidingSection.addEventListener("touchend", slider.touchend, false);
       imageSlider.querySelector('.btnPrev').addEventListener('click', slider.slidePrev);
-      imageSlider.querySelector('.btnNext').addEventListener('click', slider.slideNext);
+      btnNext.addEventListener('click', slider.slideNext);
   });
 });
 
@@ -23,20 +27,29 @@ const slider = (() => {
   let prev = null;
 
   const slideNext = (event) => {
-    resetSlider();
-    const eventSrc = event.target || event.srcElement;
-    const parent = eventSrc.parentNode.parentNode.querySelector('.images');
-    assignElements(parent);
-    resetElement(slidingElement);
-    if (next) resetElement(next);
-    if (prev) resetElement(prev);
-    const numberOfItems = slidingElement.parentNode.children.length;
-    const currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
+    const [numberOfItems, currentIndex] = mainSlider(event);
     const isLast = currentIndex == numberOfItems -1 || false;
+    const willBeLast = (currentIndex + 1) >= numberOfItems -1 || false;
+    const btnNext =  slidingElement.parentNode.parentNode.querySelector('.btnNext');
+    const btnPrev = slidingElement.parentNode.parentNode.querySelector('.btnPrev');
+    btnPrev.style.visibility = 'visible';
+    btnNext.style.visibility = willBeLast ? 'hidden' : 'visible';
     if (!isLast) slideToNext(0.5);
   };
 
   const slidePrev = (event) => {
+    const [numberOfItems, currentIndex] = mainSlider(event);
+    const isFirst = currentIndex == 0 || false;
+    const willBeFirst = (currentIndex -1) <= 0 || false;
+    const btnNext =  slidingElement.parentNode.parentNode.querySelector('.btnNext');
+    const btnPrev = slidingElement.parentNode.parentNode.querySelector('.btnPrev');
+    btnNext.style.visibility = 'visible';
+    btnPrev.style.visibility = willBeFirst ? 'hidden' : 'visible';
+    if (!isFirst) slideToPrev(0.5);
+  };
+
+
+  const mainSlider = (event) => {
     resetSlider();
     const eventSrc = event.target || event.srcElement;
     const parent = eventSrc.parentNode.parentNode.querySelector('.images');
@@ -46,9 +59,8 @@ const slider = (() => {
     if (prev) resetElement(prev);
     const numberOfItems = slidingElement.parentNode.children.length;
     const currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
-    const isFirst = currentIndex == 0 || false;
-    if (!isFirst) slideToPrev(0.5);
-  };
+    return [numberOfItems, currentIndex]
+  }
 
   const touchstart = (event) => {
     resetSlider();

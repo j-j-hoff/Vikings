@@ -1348,6 +1348,9 @@ footer:after {
 #menu-component ul li a:hover:before {
   width: 100%;
 }
+#menu-component ul li a.active:before {
+  width: 100%;
+}
 .button-component {
   text-align: center;
   margin-top: 5rem;
@@ -1473,7 +1476,6 @@ footer:after {
 .image-slider .images .sliding-element {
   transform: translateX(0%);
   position: absolute;
-  z-index: -1;
   left: 100%;
   height: 100%;
   width: 100%;
@@ -1501,6 +1503,7 @@ footer:after {
   z-index: 3;
 }
 .image-slider .slide-controllers {
+  visibility: hidden;
   position: relative;
   top: -55%;
   z-index: 1;
@@ -1525,6 +1528,85 @@ footer:after {
 }
 .image-slider .slide-controllers img:hover {
   cursor: pointer;
+}
+.video-component {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+  text-align: center;
+  z-index: 10;
+}
+.video-component .video-play-icon {
+  height: 12rem;
+  width: 12rem;
+  border: 2px solid #fff;
+  text-align: center;
+  z-index: 5;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  transition: background-color 500ms linear;
+  background-color: rgba(41, 41, 41, 0.4);
+}
+@media (min-width: 768px) {
+  .video-component .video-play-icon {
+    height: 24rem;
+    width: 24rem;
+  }
+}
+.video-component .video-play-icon:hover {
+  background-color: rgba(41, 41, 41, 0.6);
+}
+.video-component .video-play-icon:hover {
+  cursor: pointer;
+}
+.video-component .video-overlay {
+  display: none;
+  transition: opacity 1s linear;
+  z-index: 15;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 41, 41, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+.video-component .video-overlay .close-video {
+  height: 5rem;
+  width: 5rem;
+  background-image: url('../img/close.svg');
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+@media (min-width: 768px) {
+  .video-component .video-overlay .close-video {
+    top: 5rem;
+    right: 5rem;
+  }
+}
+.video-component .video-overlay .close-video:hover {
+  cursor: pointer;
+}
+.video-component .video-overlay .video-container {
+  width: 100%;
+}
+.video-component .video-overlay .video-container .videowrapper {
+  float: none;
+  clear: both;
+  width: 100%;
+}
+.video-component .video-overlay .video-container .videowrapper iframe {
+  width: 80%;
+  height: 70%;
 }
 /* Mixins */
 /* View Mixins */
