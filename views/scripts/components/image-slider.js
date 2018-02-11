@@ -1,5 +1,6 @@
 window.addEventListener('load', function() {
   const imageSliders = document.querySelectorAll('.image-slider');
+  if (!imageSliders) return;
     imageSliders.forEach(imageSlider => {
       const slidingSection = imageSlider.querySelector('.images')
       slidingSection.addEventListener("touchstart", slider.touchstart, false);

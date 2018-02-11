@@ -1085,8 +1085,8 @@ header .content {
 }
 header .content > a,
 header .content label {
-  height: 7rem;
-  width: 7rem;
+  height: 5rem;
+  width: 5rem;
 }
 @media (min-width: 768px) {
   header .content > a,
@@ -1359,6 +1359,8 @@ footer:after {
 }
 .button-component a,
 .button-component-form {
+  border-radius: 0;
+  -webkit-appearance: none;
   font-family: 'norseregular';
   font-size: 4rem;
   border: 1px solid #fff;

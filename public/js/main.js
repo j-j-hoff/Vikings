@@ -2,6 +2,7 @@
 
 window.addEventListener('load', function () {
   var imageSliders = document.querySelectorAll('.image-slider');
+  if (!imageSliders) return;
   imageSliders.forEach(function (imageSlider) {
     var slidingSection = imageSlider.querySelector('.images');
     slidingSection.addEventListener("touchstart", slider.touchstart, false);
@@ -173,17 +174,13 @@ var slider = function () {
 }();
 
 document.getElementById('open-close-menu').addEventListener('change', hideShowMenu);
-document.getElementById('open-close-menu').addEventListener('change', hideShowMenu);
-var hideShowMenu = function hideShowMenu(e) {
-  console.log('körs');
-  var body = document.getElementsByTagName('body');
-  if (undefined.checked) {
-    console.log(body);
-    console.log('gömd');
+function hideShowMenu(e) {
+  var body = document.getElementsByTagName('body')[0];
+  if (this.checked) {
     body.style.overflow = "hidden";
+    body.style.position = "fixed";
   } else {
-    console.log(body);
-    console.log('inte gömd');
     body.style.overflow = "initial";
+    body.style.position = "initial";
   }
-};
+}

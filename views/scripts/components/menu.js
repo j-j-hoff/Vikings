@@ -1,15 +1,12 @@
 document.getElementById('open-close-menu').addEventListener('change', hideShowMenu);
-document.getElementById('open-close-menu').addEventListener('change', hideShowMenu);
-const hideShowMenu = (e) => {
-  console.log('körs');
-  const body = document.getElementsByTagName('body');
+function hideShowMenu(e) {
+  const body = document.getElementsByTagName('body')[0];
   if(this.checked) {
-    console.log(body);
-    console.log('gömd');
     body.style.overflow = "hidden";
+    body.style.position = "fixed";
   } else {
-    console.log(body);
-    console.log('inte gömd');
     body.style.overflow = "initial";
+    body.style.position = "initial";
+      
   }
 }
