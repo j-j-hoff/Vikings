@@ -7,22 +7,13 @@ window.addEventListener('load', function() {
 
       const btnNext = imageSlider.querySelector('.btnNext');
       btnNext.style.visibility = 'visible';
-      slidingSection.addEventListener("touchstart", slider.touchstart, false);
-      slidingSection.addEventListener("touchmove", slider.touchmove, false);
-      slidingSection.addEventListener("touchend", slider.touchend, false);
       imageSlider.querySelector('.btnPrev').addEventListener('click', slider.slidePrev);
       btnNext.addEventListener('click', slider.slideNext);
   });
 });
 
 const slider = (() => {
-  let startClientX = null;
-  let startClientY = null;
-  let endClientX = null;
-  let endClientY = null;
-  let deltaClientX = null;
   let slidingElement = null;
-  let momentum = null;
   let next = null;
   let prev = null;
 
@@ -48,7 +39,6 @@ const slider = (() => {
     if (!isFirst) slideToPrev(0.5);
   };
 
-
   const mainSlider = (event) => {
     resetSlider();
     const eventSrc = event.target || event.srcElement;
@@ -60,65 +50,6 @@ const slider = (() => {
     const numberOfItems = slidingElement.parentNode.children.length;
     const currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
     return [numberOfItems, currentIndex]
-  }
-
-  const touchstart = (event) => {
-    resetSlider();
-    const eventSrc = event.target || event.srcElement;
-    assignElements(eventSrc);
-    startClientX = event.touches[0].clientX;
-    startClientY = event.touches[0].clientY;
-    resetElement(slidingElement);
-    if (next) resetElement(next);
-    if (prev) resetElement(prev);
-  }
-
-  const isSlide = () => {
-    const w = endClientX - startClientX;
-    const h = endClientY - startClientY;
-    const atan = Math.abs(Math.atan2(h, w) / Math.PI * 180);
-    if (atan < 70 || atan > 110) return true;
-    return false;
-  };
-
-  const touchmove = (event) => {
-    const prevVal = endClientX ? endClientX : startClientX;
-    endClientX = event.touches[0].clientX;
-    endClientY = event.touches[0].clientY;
-    if (!isSlide()) return;
-    event.preventDefault();
-    deltaClientX = ((startClientX - endClientX) / window.innerWidth) * 100;
-    slidingElement.style.transform = `translateX(-${100 + deltaClientX}%)`;
-    if (next) next.style.transform = `translateX(-${0 + deltaClientX}%)`;
-    if (prev) prev.style.transform = `translateX(-${200 + deltaClientX}%)`;
-    momentum = Math.abs(prevVal - endClientX);
-  }
-
-  const touchend = (e) => {
-    if (!isSlide()) {
-      return;
-    }
-    const numberOfItems = slidingElement.parentNode.children.length;
-    const currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
-    const isFirst = currentIndex == 0 || false;
-    const isLast = currentIndex == numberOfItems -1 || false;
-
-    const isFlicked = isFlick(isFirst, isLast);
-    const duration = isFlicked ? 0.3 : 0.5;
-    if (Math.abs(deltaClientX) < 45 && !isFlicked) {
-      slider(slidingElement, duration, -100, false);
-      if (next) slider(next, duration, 0, false);
-      if (prev) slider(prev, duration, -200, false);
-    } 
-    else if (deltaClientX < 0 && !isFirst) {
-      slideToPrev(duration);
-    } else if (deltaClientX > 0 && !isLast) {
-      slideToNext(duration);
-    } else {
-      slider(slidingElement, duration, -100, false);
-      if (next) slider(next, duration, 0, false);
-      if (prev) slider(prev, duration, -200, false);
-    }
   }
 
   const slideToPrev = (duration) => {
@@ -148,35 +79,18 @@ const slider = (() => {
     if (removeClass) slidingElement.classList.remove('active');
   };
 
-  const isFlick = (isFirst, isLast) => {
-    if (momentum >= 10 && !( (deltaClientX <= 0 && isFirst) || (deltaClientX >= 0 && isLast) ) ){
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   const resetElement = (element) => {
     element.classList.remove('animate');
     element.style.transitionDuration = "0s";
   }
 
   const resetSlider = () => {
-    startClientX = null;
-    startClientY = null;
-    endClientX = null;
-    endClientY = null;
-    deltaClientX = null;
     slidingElement = null;
-    momentum = null;
     next = null;
     prev = null;
   };
 
   return {
-    touchstart: touchstart,
-    touchmove: touchmove,
-    touchend: touchend,
     slidePrev: slidePrev,
     slideNext: slideNext,
   }

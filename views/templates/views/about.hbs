@@ -50,7 +50,31 @@
           turkey tenderloin cupim. Short ribs pancetta hamburger boudin. Meatball leberkas pork belly brisket biltong. 
           Sirloin burgdoggen pastrami bacon.
         </p>
+        {{> button 
+          text='To Jomsborg' 
+          link="http://www.jomsborg.com" 
+        }}
       </div>
+    </section>
+
+    <section class="image-slide-section">
+      {{>image-slider
+        images= '{
+        "images":[
+          { 
+            "url": "./img/horse.jpg", 
+            "heading":"Vikings",
+            "text": "Bacon ipsum dolor amet hamburger beribs kevin fatback. Bacon ipsum dolor amet hamburger beribs kevin fatback."
+          },
+          { 
+            "url": "./img/profile.jpg", 
+            "heading":"Vikings",
+            "text": "Bacon ipsum dolor amet hamburger beribs kevin fatback. Bacon ipsum dolor amet hamburger beribs kevin fatback.",
+            "isVideo": true,
+            "video-id": "mFc_05xzftw"
+          }
+        ]}'
+      }}
     </section>
 
     <section class="thanks-section">
@@ -59,13 +83,28 @@
         <img src="./img/viking-icon.svg"/>
         <ul>
           <li>
-            <p>Pernilla</p>
+            <a>
+              <div>
+                <div class="icon" style="background-image:url('./img/closeup.jpg')"></div>
+              </div>
+              <p>Pernilla Svensson</p>
+            </a>
           </li>
           <li>
-            <p>Pernilla 2</p>
+            <a>
+              <div>
+                <div class="icon" style="background-image:url('./img/closeup.jpg')"></div>
+              </div>
+              <p>Pernilla 3</p>
+            </a>
           </li>
           <li>
-            <p>Pernilla 3</p>
+            <a>
+              <div>
+                <div class="icon" style="background-image:url('./img/closeup.jpg')"></div>
+              </div>
+              <p>Pernilla 3</p>
+            </a>
           </li>
         </ul>
       </div>

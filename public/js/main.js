@@ -1,6 +1,10 @@
 'use strict';
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 window.addEventListener('load', function () {
   var imageSliders = document.querySelectorAll('.image-slider');
@@ -11,22 +15,13 @@ window.addEventListener('load', function () {
 
     var btnNext = imageSlider.querySelector('.btnNext');
     btnNext.style.visibility = 'visible';
-    slidingSection.addEventListener("touchstart", slider.touchstart, false);
-    slidingSection.addEventListener("touchmove", slider.touchmove, false);
-    slidingSection.addEventListener("touchend", slider.touchend, false);
     imageSlider.querySelector('.btnPrev').addEventListener('click', slider.slidePrev);
     btnNext.addEventListener('click', slider.slideNext);
   });
 });
 
 var slider = function () {
-  var startClientX = null;
-  var startClientY = null;
-  var endClientX = null;
-  var endClientY = null;
-  var deltaClientX = null;
   var slidingElement = null;
-  var momentum = null;
   var next = null;
   var prev = null;
 
@@ -73,64 +68,6 @@ var slider = function () {
     return [numberOfItems, currentIndex];
   };
 
-  var touchstart = function touchstart(event) {
-    resetSlider();
-    var eventSrc = event.target || event.srcElement;
-    assignElements(eventSrc);
-    startClientX = event.touches[0].clientX;
-    startClientY = event.touches[0].clientY;
-    resetElement(slidingElement);
-    if (next) resetElement(next);
-    if (prev) resetElement(prev);
-  };
-
-  var isSlide = function isSlide() {
-    var w = endClientX - startClientX;
-    var h = endClientY - startClientY;
-    var atan = Math.abs(Math.atan2(h, w) / Math.PI * 180);
-    if (atan < 70 || atan > 110) return true;
-    return false;
-  };
-
-  var touchmove = function touchmove(event) {
-    var prevVal = endClientX ? endClientX : startClientX;
-    endClientX = event.touches[0].clientX;
-    endClientY = event.touches[0].clientY;
-    if (!isSlide()) return;
-    event.preventDefault();
-    deltaClientX = (startClientX - endClientX) / window.innerWidth * 100;
-    slidingElement.style.transform = 'translateX(-' + (100 + deltaClientX) + '%)';
-    if (next) next.style.transform = 'translateX(-' + (0 + deltaClientX) + '%)';
-    if (prev) prev.style.transform = 'translateX(-' + (200 + deltaClientX) + '%)';
-    momentum = Math.abs(prevVal - endClientX);
-  };
-
-  var touchend = function touchend(e) {
-    if (!isSlide()) {
-      return;
-    }
-    var numberOfItems = slidingElement.parentNode.children.length;
-    var currentIndex = Array.from(slidingElement.parentNode.children).indexOf(slidingElement);
-    var isFirst = currentIndex == 0 || false;
-    var isLast = currentIndex == numberOfItems - 1 || false;
-
-    var isFlicked = isFlick(isFirst, isLast);
-    var duration = isFlicked ? 0.3 : 0.5;
-    if (Math.abs(deltaClientX) < 45 && !isFlicked) {
-      slider(slidingElement, duration, -100, false);
-      if (next) slider(next, duration, 0, false);
-      if (prev) slider(prev, duration, -200, false);
-    } else if (deltaClientX < 0 && !isFirst) {
-      slideToPrev(duration);
-    } else if (deltaClientX > 0 && !isLast) {
-      slideToNext(duration);
-    } else {
-      slider(slidingElement, duration, -100, false);
-      if (next) slider(next, duration, 0, false);
-      if (prev) slider(prev, duration, -200, false);
-    }
-  };
-
   var slideToPrev = function slideToPrev(duration) {
     slider(slidingElement, duration, 0);
     if (prev) slider(prev, duration, -100);
@@ -160,35 +97,18 @@ var slider = function () {
     if (removeClass) slidingElement.classList.remove('active');
   };
 
-  var isFlick = function isFlick(isFirst, isLast) {
-    if (momentum >= 10 && !(deltaClientX <= 0 && isFirst || deltaClientX >= 0 && isLast)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
   var resetElement = function resetElement(element) {
     element.classList.remove('animate');
     element.style.transitionDuration = "0s";
   };
 
   var resetSlider = function resetSlider() {
-    startClientX = null;
-    startClientY = null;
-    endClientX = null;
-    endClientY = null;
-    deltaClientX = null;
     slidingElement = null;
-    momentum = null;
     next = null;
     prev = null;
   };
 
   return {
-    touchstart: touchstart,
-    touchmove: touchmove,
-    touchend: touchend,
     slidePrev: slidePrev,
     slideNext: slideNext
   };
@@ -206,49 +126,68 @@ function hideShowMenu(e) {
   }
 }
 
-window.addEventListener('load', function () {
+var currentVideo = null;
+
+function onYouTubeIframeAPIReady() {
+  var imageSliders = document.querySelectorAll('.image-slider');
   var videos = document.querySelectorAll('.video-component');
   if (!videos) return;
-  videos.forEach(function (video) {
-    videoPlayer.init(video);
-  });
-});
-
-var videoPlayer = function () {
-  var player = null;
-  var videoComponent = null;
-
-  var init = function init(video) {
-    videoComponent = video;
-    createPlayer();
-    video.querySelector('.video-play-icon').addEventListener('click', showVideo);
-    video.querySelector('.close-video').addEventListener('click', closeVideo);
-    var parent = video.parentNode.parentNode.parentNode;
-    var btnPrev = parent.querySelector('.btnPrev');
-    var btnNext = parent.querySelector('.btnPrev');
+  if (!imageSliders) return;
+  imageSliders.forEach(function (imageSlider) {
+    var btnPrev = imageSlider.querySelector('.btnPrev');
+    var btnNext = imageSlider.querySelector('.btnPrev');
     if (btnNext) btnNext.addEventListener('click', closeVideo);
     if (btnPrev) btnPrev.addEventListener('click', closeVideo);
-  };
+  });
 
-  var createPlayer = function createPlayer() {
-    var videoId = videoComponent.dataset.videoId;
-    player = new YT.Player(videoComponent.querySelector('.video-slot'), {
-      videoId: videoId
-    });
-  };
+  videos.forEach(function (video) {
+    var videoElm = new videoPlayer(video);
+    video.querySelector('.video-play-icon').addEventListener('click', videoElm.showVideo);
+    video.querySelector('.close-video').addEventListener('click', videoElm.closeVideo);
+  });
+}
 
-  var showVideo = function showVideo(event) {
-    var eventSrc = event.target || event.srcElement;
-    var vidoeOverlay = videoComponent.querySelector('.video-overlay');
-    vidoeOverlay.style.display = 'flex';
-    player.playVideo();
-  };
+var closeVideo = function closeVideo() {
+  if (currentVideo) currentVideo.closeVideo();
+};
 
-  var closeVideo = function closeVideo(event) {
-    player.stopVideo();
-    var vidoeOverlay = videoComponent.querySelector('.video-overlay');
-    vidoeOverlay.style.display = 'none';
-  };
+var videoPlayer = function () {
+  function videoPlayer(video) {
+    _classCallCheck(this, videoPlayer);
 
-  return { init: init };
+    this.showVideo = this.showVideo.bind(this);
+    this.closeVideo = this.closeVideo.bind(this);
+    this.videoComponent = video;
+    this.createPlayer();
+  }
+
+  _createClass(videoPlayer, [{
+    key: 'createPlayer',
+    value: function createPlayer() {
+      var videoId = this.videoComponent.dataset.videoId;
+      this.player = new YT.Player(this.videoComponent.querySelector('.video-slot'), {
+        videoId: videoId
+      });
+    }
+  }, {
+    key: 'showVideo',
+    value: function showVideo() {
+      var vidoeOverlay = this.videoComponent.querySelector('.video-overlay');
+      vidoeOverlay.style.display = 'flex';
+      this.player.playVideo();
+      currentVideo = this;
+    }
+  }, {
+    key: 'closeVideo',
+    value: function closeVideo() {
+      this.player.stopVideo();
+      var vidoeOverlay = this.videoComponent.querySelector('.video-overlay');
+      vidoeOverlay.style.display = 'none';
+      currentVideo = null;
+    }
+  }]);
+
+  return videoPlayer;
 }();
+
+;

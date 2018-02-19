@@ -44,9 +44,14 @@ const about = () => {
   return getView('about')();
 }
 
+const vikings = () => {
+  return getView('vikings')();
+}
+
 module.exports = {
   start,
   reanactment,
   hireUs,
-  about
+  about,
+  vikings
 };

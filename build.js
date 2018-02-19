@@ -29,3 +29,9 @@ fs.writeFile('public/about.html', routes.about(), function (err) {
   console.log('Wrote about.html');
 });
 
+fs.writeFile('public/vikings.html', routes.vikings(), function (err) {
+  if (err) 
+      return console.log(err);
+  console.log('Wrote vikings.html');
+});
+

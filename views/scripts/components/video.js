@@ -1,47 +1,53 @@
-window.addEventListener('load', function() {
+let currentVideo = null;
+
+function onYouTubeIframeAPIReady() {
+  const imageSliders = document.querySelectorAll('.image-slider');
   const videos = document.querySelectorAll('.video-component');
   if (!videos) return;
-  videos.forEach(video => {
-    videoPlayer.init(video);
+  if (!imageSliders) return;
+    imageSliders.forEach(imageSlider => {
+      const btnPrev = imageSlider.querySelector('.btnPrev');
+      const btnNext = imageSlider.querySelector('.btnPrev');
+      if (btnNext) btnNext.addEventListener('click', closeVideo);
+      if (btnPrev) btnPrev.addEventListener('click', closeVideo);
   });
-});
 
-const videoPlayer = (() => {
-  let player = null;
-  let videoComponent = null;
+  videos.forEach(video => {
+    const videoElm = new videoPlayer(video);
+    video.querySelector('.video-play-icon').addEventListener('click', videoElm.showVideo);
+    video.querySelector('.close-video').addEventListener('click', videoElm.closeVideo);
+  });
+}
 
-  const init = (video) => {
-    videoComponent = video;
-    createPlayer();
-    video.querySelector('.video-play-icon').addEventListener('click', showVideo);
-    video.querySelector('.close-video').addEventListener('click', closeVideo);
-    const parent = video.parentNode.parentNode.parentNode;
-    const btnPrev = parent.querySelector('.btnPrev');
-    const btnNext = parent.querySelector('.btnPrev');
-    if (btnNext) btnNext.addEventListener('click', closeVideo);
-    if (btnPrev) btnPrev.addEventListener('click', closeVideo);
+const closeVideo = () => {
+  if (currentVideo) currentVideo.closeVideo();
+};
+class videoPlayer {
+  constructor(video) {
+    this.showVideo = this.showVideo.bind(this);
+    this.closeVideo = this.closeVideo.bind(this);
+    this.videoComponent = video;
+    this.createPlayer();
   };
 
-  const createPlayer = () => {
-    const videoId = videoComponent.dataset.videoId;
-    player = new YT.Player(videoComponent.querySelector('.video-slot'), {
+  createPlayer() {
+    const videoId = this.videoComponent.dataset.videoId;
+    this.player = new YT.Player(this.videoComponent.querySelector('.video-slot'), {
       videoId: videoId,
     });
   };
 
-  const showVideo = (event) => {
-    const eventSrc = event.target || event.srcElement;
-    const vidoeOverlay = videoComponent.querySelector('.video-overlay');
+  showVideo() {
+    const vidoeOverlay = this.videoComponent.querySelector('.video-overlay');
     vidoeOverlay.style.display = 'flex';
-    player.playVideo();
+    this.player.playVideo();
+    currentVideo = this;
   };
-  
-  
-  const closeVideo = (event) => {
-    player.stopVideo();
-    const vidoeOverlay = videoComponent.querySelector('.video-overlay');
+   
+  closeVideo() {
+    this.player.stopVideo();
+    const vidoeOverlay = this.videoComponent.querySelector('.video-overlay');
     vidoeOverlay.style.display = 'none';
+    currentVideo = null;
   };
-
-  return { init: init }
-})();
+};

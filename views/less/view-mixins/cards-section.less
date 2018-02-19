@@ -1,12 +1,52 @@
 .cards-section () {
-  ul {
-    padding: 0;
+  .content {
+    margin: 0 auto;
+    width: 80%;
 
-    li {
-      display: inline-block;
-      list-style-type: none;
-      height: 4rem;
-      width: 30%;
+    ul {
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+
+      li {
+        font-family: @main-font;
+        text-align: center;
+        display: inline-block;
+        list-style-type: none;
+        background-color: @dark-dark;
+        box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.5s;
+        width: 100%;
+        margin: 2rem auto;
+
+        @media (min-width: @screen-sm) {
+          width: 30%;
+        }
+
+        &:hover {
+          cursor: pointer;
+          transform:translateY(-5px);
+        }
+
+        p {
+          margin: 1rem 0;
+        }
+
+        div {
+          background-color: @main-light;
+          padding: 2rem 0;
+          .icon {
+            width: 12rem;
+            height: 12rem;
+            margin: 0 auto;
+            .border-radius(50%);
+            border: 6px solid @main-dark;
+            background-size: cover;
+            padding: 0;
+          }
+        }
+      }
     }
   }
 }
