@@ -1029,39 +1029,17 @@ a {
 }
 #about .contact-us-section {
   background-color: #000;
-  background: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0) 50%, #000000 100%), url('../img/aaron.png'), #000;
-  background-repeat: no-repeat;
-  background-position: center left;
-  padding-top: 10vh;
 }
-@media (min-width: 768px) {
-  #about .contact-us-section {
-    background-size: contain;
-  }
+#about .contact-us-section .content {
+  padding: 0 1.5rem;
+  margin: 0;
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
 }
-@media (min-width: 1200px) {
-  #about .contact-us-section .content {
-    width: 40%;
-    margin-left: 60%;
-    text-align: left;
-  }
-}
-#about .contact-us-section .content h2 {
-  text-align: left;
-  font-size: 6rem;
-}
-#about .contact-us-section .content h3 {
-  color: #FF5151;
-  font-size: 3rem;
-  margin-bottom: 0;
-}
-#about .contact-us-section .button-component {
-  margin-top: 5rem;
-}
-@media (min-width: 550px) {
-  #about .contact-us-section .button-component {
-    text-align: left;
-  }
+#about .contact-us-section .content > div {
+  padding: 0;
+  padding-top: 15vh;
 }
 #vikings .top-section {
   background-color: #000;
@@ -1431,7 +1409,7 @@ footer:after {
   padding: 0 1.5rem;
   margin: 0;
   display: table;
-  width: 100%;
+  min-height: 65vh;
   box-sizing: border-box;
 }
 .contact-form .content > div {
@@ -1457,6 +1435,33 @@ footer:after {
   float: none;
   display: table-cell;
   vertical-align: top;
+  /*form {
+        margin-top: 2rem;
+
+        label,
+        input[type=text],
+        textarea {
+          display: block;
+          width: 100%;
+        }
+
+        label {
+          margin-top: 2rem;
+        }
+
+        input[type=text], 
+        textarea {
+          background-color: @main-dark;
+          padding: 0.8rem 0.2rem;
+          border: none;
+          border-bottom: 3px solid @main-dark;
+          outline: none;
+
+          &:focus {
+            border-bottom: 3px solid @white;
+          }
+        }
+      }*/
 }
 @media (min-width: 768px) {
   .contact-form .content .form-container {
@@ -1482,29 +1487,35 @@ footer:after {
   color: #FF5151;
   font-size: 3rem;
 }
-.contact-form .content .form-container form {
-  margin-top: 2rem;
-}
-.contact-form .content .form-container form label,
-.contact-form .content .form-container form input[type=text],
-.contact-form .content .form-container form textarea {
+.contact-form .content .form-container > div {
   display: block;
-  width: 100%;
+  width: 60%;
+  margin: 3rem auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
-.contact-form .content .form-container form label {
-  margin-top: 2rem;
+.contact-form .content .form-container > div .icon {
+  height: 5rem;
+  width: 5rem;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: white;
 }
-.contact-form .content .form-container form input[type=text],
-.contact-form .content .form-container form textarea {
-  background-color: #292929;
-  padding: 0.8rem 0.2rem;
-  border: none;
-  border-bottom: 3px solid #292929;
-  outline: none;
+.contact-form .content .form-container > div .content-wrapper {
+  padding-left: 2rem;
 }
-.contact-form .content .form-container form input[type=text]:focus,
-.contact-form .content .form-container form textarea:focus {
-  border-bottom: 3px solid #fff;
+.contact-form .content .form-container > div .content-wrapper label {
+  display: block;
+  font-family: 'norseregular';
+  color: #FF5151;
+}
+.contact-form .content .form-container > div .content-wrapper p {
+  margin: 0;
 }
 .contact-form .content .form-container .button-component-form {
   display: block;
