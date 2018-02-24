@@ -1066,9 +1066,15 @@ a {
   padding: 0 4px;
 }
 #vikings .vikings-section .content .column {
-  flex: 30%;
-  max-width: 30%;
+  flex: 100%;
+  max-width: 100%;
   padding: 0 4px;
+}
+@media (min-width: 768px) {
+  #vikings .vikings-section .content .column {
+    flex: 30%;
+    max-width: 30%;
+  }
 }
 #vikings .vikings-section .content .column div {
   background-color: #000;
@@ -1077,11 +1083,41 @@ a {
   width: 100%;
 }
 #vikings .vikings-section .content .column div h2 {
-  font-size: 4rem;
-  padding: 2rem;
+  font-size: 3rem;
+  padding: 2rem 0.5rem;
+}
+@media (min-width: 768px) {
+  #vikings .vikings-section .content .column div h2 {
+    font-size: 4rem;
+    padding: 2rem;
+  }
 }
 #vikings .vikings-section .content .column div img {
   width: 100%;
+}
+#error .top-section {
+  background-color: #000;
+  height: 100%;
+}
+#error .top-section .content {
+  padding: 0;
+  padding-top: 25vh;
+}
+#error .top-section .content h1,
+#error .top-section .content h2 {
+  text-align: center;
+}
+#error .top-section .content h2 {
+  font-size: 3.8rem;
+  line-height: 1.4;
+}
+@media (min-width: 768px) {
+  #error .top-section .content h2 {
+    font-size: 5.2rem;
+  }
+}
+#error .top-section .content h2 span {
+  color: #FF5151;
 }
 /* Components */
 header {
@@ -1212,7 +1248,6 @@ footer ul:last-of-type a {
   background-clip: padding-box;
 }
 footer ul:last-of-type li {
-  width: 50%;
   float: left;
 }
 @media (min-width: 768px) {
@@ -1489,11 +1524,15 @@ footer:after {
 }
 .contact-form .content .form-container > div {
   display: block;
-  width: 60%;
   margin: 3rem auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+@media (min-width: 768px) {
+  .contact-form .content .form-container > div {
+    width: 60%;
+  }
 }
 .contact-form .content .form-container > div .icon {
   height: 5rem;
@@ -1504,7 +1543,13 @@ footer:after {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background-color: white;
+  border: 1px solid #fff;
+}
+.contact-form .content .form-container > div .icon.email {
+  background: url('../img/mail-icon.svg');
+}
+.contact-form .content .form-container > div .icon.phone {
+  background: url('../img/phone-icon.svg');
 }
 .contact-form .content .form-container > div .content-wrapper {
   padding-left: 2rem;

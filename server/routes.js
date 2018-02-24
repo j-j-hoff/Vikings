@@ -48,10 +48,15 @@ const vikings = () => {
   return getView('vikings')();
 }
 
+const error = () => {
+  return getView('404')();
+}
+
 module.exports = {
   start,
   reanactment,
   hireUs,
   about,
-  vikings
+  vikings,
+  error
 };

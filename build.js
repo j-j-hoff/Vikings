@@ -35,3 +35,9 @@ fs.writeFile('public/vikings.html', routes.vikings(), function (err) {
   console.log('Wrote vikings.html');
 });
 
+
+fs.writeFile('public/404.html', routes.error(), function (err) {
+  if (err) 
+      return console.log(err);
+  console.log('Wrote 404.html');
+});

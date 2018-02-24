@@ -1,0 +1,27 @@
+#error {
+  .top-section {
+    background-color: @dark-dark;
+    height: 100%;
+
+    .content {
+      padding: 0;
+      padding-top: 25vh;
+
+      h1, h2 {
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 3.8rem;
+        line-height: 1.4;
+        @media (min-width: @screen-sm) {
+          font-size: 5.2rem;
+        } 
+
+        span {
+          color: @red;
+        }
+      }
+    }
+  }
+}

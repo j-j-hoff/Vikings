@@ -27,9 +27,14 @@
       padding: 0 4px;
 
       .column {
-        flex: 30%;
-        max-width: 30%;
+        flex: 100%;
+        max-width: 100%;
         padding: 0 4px;
+
+        @media (min-width: @screen-sm) {
+          flex: 30%;
+          max-width: 30%;
+        }
         
         div {
           background-color: @dark-dark;
@@ -38,8 +43,13 @@
           width: 100%;
 
           h2 {
-            font-size: 4rem;
-            padding: 2rem;
+            font-size: 3rem;
+            padding: 2rem 0.5rem;
+
+            @media (min-width: @screen-sm) {
+              font-size: 4rem;
+              padding: 2rem;
+            }
           }
 
           img {
