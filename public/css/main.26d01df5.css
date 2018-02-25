@@ -208,8 +208,13 @@ a {
 }
 @media (min-width: 768px) {
   #start .hire-us-section .content {
-    width: 50%;
+    width: 60%;
     padding-top: 14vh;
+  }
+}
+@media (min-width: 980px) {
+  #start .hire-us-section .content {
+    width: 50%;
   }
 }
 @media (min-width: 1200px) {
@@ -305,6 +310,14 @@ a {
 #reanactment .top-section .content h2 {
   text-align: left;
 }
+@media (max-width: 980px) {
+  #reanactment .top-section .content h1 {
+    font-size: 14rem;
+  }
+  #reanactment .top-section .content h2 {
+    font-size: 8rem;
+  }
+}
 #reanactment .vikings-section {
   min-height: 90vh;
   background-color: #292929;
@@ -395,6 +408,11 @@ a {
 }
 @media (min-width: 768px) {
   #reanactment .image-slide-section .content p {
+    max-width: 60%;
+  }
+}
+@media (min-width: 980px) {
+  #reanactment .image-slide-section .content p {
     max-width: 40%;
   }
 }
@@ -483,8 +501,13 @@ a {
 }
 @media (min-width: 768px) {
   #reanactment .fight-section .content {
-    width: 50%;
+    width: 60%;
     padding-top: 14vh;
+  }
+}
+@media (min-width: 980px) {
+  #reanactment .fight-section .content {
+    width: 50%;
   }
 }
 @media (min-width: 1200px) {
@@ -536,8 +559,13 @@ a {
 }
 @media (min-width: 768px) {
   #reanactment .craftmanship-section .content {
-    width: 50%;
+    width: 60%;
     padding-top: 14vh;
+  }
+}
+@media (min-width: 980px) {
+  #reanactment .craftmanship-section .content {
+    width: 50%;
   }
 }
 @media (min-width: 1200px) {
@@ -696,6 +724,11 @@ a {
 }
 @media (min-width: 768px) {
   #hire-us .image-slide-movie-section .content p {
+    max-width: 60%;
+  }
+}
+@media (min-width: 980px) {
+  #hire-us .image-slide-movie-section .content p {
     max-width: 40%;
   }
 }
@@ -723,6 +756,11 @@ a {
   }
 }
 @media (min-width: 768px) {
+  #hire-us .image-slide-shows-section .content p {
+    max-width: 60%;
+  }
+}
+@media (min-width: 980px) {
   #hire-us .image-slide-shows-section .content p {
     max-width: 40%;
   }
@@ -856,8 +894,13 @@ a {
 }
 @media (min-width: 768px) {
   #about .training-section .content {
-    width: 50%;
+    width: 60%;
     padding-top: 14vh;
+  }
+}
+@media (min-width: 980px) {
+  #about .training-section .content {
+    width: 50%;
   }
 }
 @media (min-width: 1200px) {
@@ -907,6 +950,11 @@ a {
   }
 }
 @media (min-width: 768px) {
+  #about .image-slide-section .content p {
+    max-width: 60%;
+  }
+}
+@media (min-width: 980px) {
   #about .image-slide-section .content p {
     max-width: 40%;
   }
@@ -1461,7 +1509,7 @@ footer:after {
   background-position: center center;
   background-size: cover;
 }
-@media (min-width: 768px) {
+@media (min-width: 980px) {
   .contact-form .content .image-container {
     display: table-cell;
   }
@@ -1498,7 +1546,7 @@ footer:after {
         }
       }*/
 }
-@media (min-width: 768px) {
+@media (min-width: 980px) {
   .contact-form .content .form-container {
     width: 50%;
   }
