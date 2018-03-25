@@ -33,7 +33,7 @@ const start = () => {
 };
 
 const reanactment = () => {
-  return getView('reanactment')();
+  return getView('reenactment')();
 };
 
 const hireUs = () => {

@@ -6,6 +6,7 @@ var concat = require('gulp-concat');
 var minify = require('gulp-minify');
 var gulp = require('gulp');
 var clean = require('gulp-clean');
+var cssmin = require('gulp-cssmin');
 
 var gulp = require('gulp');
 var CacheBuster = require('gulp-cachebust');
@@ -25,7 +26,7 @@ gulp.task('pack-js', function () {
 	return gulp.src(['./views/scripts/components/*.js'])
     .pipe(concat('main.js'))
     .pipe(babel())
-    //.pipe(minify({ ext:{ min:'.js' }, noSource: true }))
+    .pipe(minify({ ext:{ min:'.js' }, noSource: true }))
 		.pipe(gulp.dest('public/js'));
 });
 
@@ -46,6 +47,7 @@ gulp.task('cachebust', ['build-css', 'build-html']);
 gulp.task('build-css', function () {
   return gulp.src('./public/css/main.css')
       // Awesome css stuff
+      .pipe(cssmin())
       .pipe(cachebust.resources())
       .pipe(gulp.dest('./public/css'));
 });

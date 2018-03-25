@@ -1,4 +1,4 @@
-#reanactment {
+#reenactment {
   .top-section {
     position: relative;
     z-index: -1;
@@ -12,7 +12,7 @@
         text-align: left;
       }
 
-      @media (max-width: @screen-m) {
+      @media (min-width: @screen-sm) and (max-width: @screen-m) {
         h1 {
           font-size: 14rem;
         }
@@ -37,7 +37,11 @@
   }
 
   .fight-section {
-    .text-and-image-section('left', '../img/fighters.png');
+    .text-and-image-section('left', '../img/rune_nicolai.jpg');
+    background-position: center left;
+    @media (min-width: @screen-m) {
+      background-position: top left;
+    }
   }
 
   .craftmanship-section {

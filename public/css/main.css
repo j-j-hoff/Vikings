@@ -121,7 +121,7 @@ a {
     transform: translateY(-3.5rem);
   }
 }
-#start .reanactment-section {
+#start .reenactment-section {
   min-height: 100vh;
   min-height: 90vh;
   background-color: #292929;
@@ -129,46 +129,46 @@ a {
   align-items: center;
 }
 @media (min-width: 768px) {
-  #start .reanactment-section .content {
+  #start .reenactment-section .content {
     width: 80%;
     margin: 0 auto;
   }
 }
 @media (min-width: 1200px) {
-  #start .reanactment-section .content {
+  #start .reenactment-section .content {
     width: 50%;
   }
 }
-#start .reanactment-section img {
+#start .reenactment-section img {
   display: block;
   height: 5rem;
   width: 5rem;
   margin: 2rem auto 0 auto;
 }
 @media (min-width: 768px) {
-  #start .reanactment-section img {
+  #start .reenactment-section img {
     height: 7rem;
     width: 7rem;
     margin-bottom: 8rem;
   }
 }
-#start .reanactment-section h2 {
+#start .reenactment-section h2 {
   font-size: 5rem;
   text-align: center;
 }
 @media (min-width: 768px) {
-  #start .reanactment-section h2 {
+  #start .reenactment-section h2 {
     font-size: 6rem;
   }
 }
-#start .reanactment-section h3 {
+#start .reenactment-section h3 {
   color: #FF5151;
   font-size: 5rem;
   margin-bottom: 0;
   margin-top: 3rem;
 }
 @media (min-width: 768px) {
-  #start .reanactment-section h3 {
+  #start .reenactment-section h3 {
     float: left;
     margin-top: 0;
     line-height: 1;
@@ -176,12 +176,12 @@ a {
     font-size: 7rem;
   }
 }
-#start .reanactment-section p {
+#start .reenactment-section p {
   color: #fff;
   margin-top: 0;
 }
 @media (min-width: 768px) {
-  #start .reanactment-section p:after {
+  #start .reenactment-section p:after {
     content: " ";
     display: block;
     clear: both;
@@ -281,7 +281,7 @@ a {
     text-align: left;
   }
 }
-#reanactment .top-section {
+#reenactment .top-section {
   position: relative;
   z-index: -1;
   min-height: 100vh;
@@ -289,82 +289,82 @@ a {
   background-size: cover;
   background-position: center center;
 }
-#reanactment .top-section .content {
+#reenactment .top-section .content {
   padding: 0;
   padding-top: 15vh;
 }
-#reanactment .top-section .content h1,
-#reanactment .top-section .content h2 {
+#reenactment .top-section .content h1,
+#reenactment .top-section .content h2 {
   text-align: center;
 }
 @media (min-width: 768px) {
-  #reanactment .top-section .content {
+  #reenactment .top-section .content {
     padding-top: 45vh;
   }
 }
-#reanactment .top-section .content {
+#reenactment .top-section .content {
   position: absolute;
   bottom: 9rem;
 }
-#reanactment .top-section .content h1,
-#reanactment .top-section .content h2 {
+#reenactment .top-section .content h1,
+#reenactment .top-section .content h2 {
   text-align: left;
 }
-@media (max-width: 980px) {
-  #reanactment .top-section .content h1 {
+@media (min-width: 768px) and (max-width: 980px) {
+  #reenactment .top-section .content h1 {
     font-size: 14rem;
   }
-  #reanactment .top-section .content h2 {
+  #reenactment .top-section .content h2 {
     font-size: 8rem;
   }
 }
-#reanactment .vikings-section {
+#reenactment .vikings-section {
   min-height: 90vh;
   background-color: #292929;
   display: flex;
   align-items: center;
 }
 @media (min-width: 768px) {
-  #reanactment .vikings-section .content {
+  #reenactment .vikings-section .content {
     width: 80%;
     margin: 0 auto;
   }
 }
 @media (min-width: 1200px) {
-  #reanactment .vikings-section .content {
+  #reenactment .vikings-section .content {
     width: 50%;
   }
 }
-#reanactment .vikings-section img {
+#reenactment .vikings-section img {
   display: block;
   height: 5rem;
   width: 5rem;
   margin: 2rem auto 0 auto;
 }
 @media (min-width: 768px) {
-  #reanactment .vikings-section img {
+  #reenactment .vikings-section img {
     height: 7rem;
     width: 7rem;
     margin-bottom: 8rem;
   }
 }
-#reanactment .vikings-section h2 {
+#reenactment .vikings-section h2 {
   font-size: 5rem;
   text-align: center;
 }
 @media (min-width: 768px) {
-  #reanactment .vikings-section h2 {
+  #reenactment .vikings-section h2 {
     font-size: 6rem;
   }
 }
-#reanactment .vikings-section h3 {
+#reenactment .vikings-section h3 {
   color: #FF5151;
   font-size: 5rem;
   margin-bottom: 0;
   margin-top: 3rem;
 }
 @media (min-width: 768px) {
-  #reanactment .vikings-section h3 {
+  #reenactment .vikings-section h3 {
     float: left;
     margin-top: 0;
     line-height: 1;
@@ -372,97 +372,97 @@ a {
     font-size: 7rem;
   }
 }
-#reanactment .vikings-section p {
+#reenactment .vikings-section p {
   color: #fff;
   margin-top: 0;
 }
 @media (min-width: 768px) {
-  #reanactment .vikings-section p:after {
+  #reenactment .vikings-section p:after {
     content: " ";
     display: block;
     clear: both;
   }
 }
-#reanactment .image-slide-section {
+#reenactment .image-slide-section {
   height: 90vh;
 }
-#reanactment .image-slide-section .content {
+#reenactment .image-slide-section .content {
   position: absolute;
   bottom: 5rem;
   padding-bottom: 0;
 }
 @media (min-width: 768px) {
-  #reanactment .image-slide-section .content {
+  #reenactment .image-slide-section .content {
     margin-left: 10%;
   }
 }
-#reanactment .image-slide-section .content h3 {
+#reenactment .image-slide-section .content h3 {
   color: #FF5151;
   font-size: 5rem;
   margin: 0;
 }
 @media (min-width: 768px) {
-  #reanactment .image-slide-section .content h3 {
+  #reenactment .image-slide-section .content h3 {
     font-size: 6rem;
   }
 }
 @media (min-width: 768px) {
-  #reanactment .image-slide-section .content p {
+  #reenactment .image-slide-section .content p {
     max-width: 60%;
   }
 }
 @media (min-width: 980px) {
-  #reanactment .image-slide-section .content p {
+  #reenactment .image-slide-section .content p {
     max-width: 40%;
   }
 }
-#reanactment .historical-section {
+#reenactment .historical-section {
   min-height: 90vh;
   background-color: #292929;
   display: flex;
   align-items: center;
 }
 @media (min-width: 768px) {
-  #reanactment .historical-section .content {
+  #reenactment .historical-section .content {
     width: 80%;
     margin: 0 auto;
   }
 }
 @media (min-width: 1200px) {
-  #reanactment .historical-section .content {
+  #reenactment .historical-section .content {
     width: 50%;
   }
 }
-#reanactment .historical-section img {
+#reenactment .historical-section img {
   display: block;
   height: 5rem;
   width: 5rem;
   margin: 2rem auto 0 auto;
 }
 @media (min-width: 768px) {
-  #reanactment .historical-section img {
+  #reenactment .historical-section img {
     height: 7rem;
     width: 7rem;
     margin-bottom: 8rem;
   }
 }
-#reanactment .historical-section h2 {
+#reenactment .historical-section h2 {
   font-size: 5rem;
   text-align: center;
 }
 @media (min-width: 768px) {
-  #reanactment .historical-section h2 {
+  #reenactment .historical-section h2 {
     font-size: 6rem;
   }
 }
-#reanactment .historical-section h3 {
+#reenactment .historical-section h3 {
   color: #FF5151;
   font-size: 5rem;
   margin-bottom: 0;
   margin-top: 3rem;
 }
 @media (min-width: 768px) {
-  #reanactment .historical-section h3 {
+  #reenactment .historical-section h3 {
     float: left;
     margin-top: 0;
     line-height: 1;
@@ -470,70 +470,75 @@ a {
     font-size: 7rem;
   }
 }
-#reanactment .historical-section p {
+#reenactment .historical-section p {
   color: #fff;
   margin-top: 0;
 }
 @media (min-width: 768px) {
-  #reanactment .historical-section p:after {
+  #reenactment .historical-section p:after {
     content: " ";
     display: block;
     clear: both;
   }
 }
-#reanactment .fight-section {
+#reenactment .fight-section {
   min-height: 90vh;
-  background: linear-gradient(to left, transparent, black), url('../img/fighters.png');
+  background: linear-gradient(to left, transparent, black), url('../img/rune_nicolai.jpg');
   background-size: cover;
   background-position: center left;
 }
 @media (min-width: 768px) {
-  #reanactment .fight-section {
+  #reenactment .fight-section {
     background-position: center center;
   }
 }
 @media (min-width: 768px) {
-  #reanactment .fight-section .content {
+  #reenactment .fight-section .content {
     float: left;
     margin-left: 10%;
     text-align: left;
   }
 }
 @media (min-width: 768px) {
-  #reanactment .fight-section .content {
+  #reenactment .fight-section .content {
     width: 60%;
     padding-top: 14vh;
   }
 }
 @media (min-width: 980px) {
-  #reanactment .fight-section .content {
+  #reenactment .fight-section .content {
     width: 50%;
   }
 }
 @media (min-width: 1200px) {
-  #reanactment .fight-section .content {
+  #reenactment .fight-section .content {
     width: 40%;
   }
 }
-#reanactment .fight-section .content h2 {
+#reenactment .fight-section .content h2 {
   margin-bottom: 0;
   font-size: 6rem;
 }
-#reanactment .fight-section .content h3 {
+#reenactment .fight-section .content h3 {
   color: #FF5151;
   font-size: 3rem;
   margin-top: 0;
 }
-#reanactment .fight-section .content p {
+#reenactment .fight-section .content p {
   margin-top: 10vh;
   text-align: left;
 }
-#reanactment .fight-section:after {
+#reenactment .fight-section:after {
   content: " ";
   display: block;
   clear: both;
 }
-#reanactment .craftmanship-section {
+@media (min-width: 980px) {
+  #reenactment .fight-section {
+    background-position: top left;
+  }
+}
+#reenactment .craftmanship-section {
   min-height: 90vh;
   background: linear-gradient(to left, transparent, black), url('../img/craftmanship.jpg');
   background-size: cover;
@@ -541,73 +546,73 @@ a {
   background-position: center center;
 }
 @media (min-width: 768px) {
-  #reanactment .craftmanship-section {
+  #reenactment .craftmanship-section {
     background: linear-gradient(to right, transparent, black), url('../img/craftmanship.jpg');
   }
 }
 @media (min-width: 768px) {
-  #reanactment .craftmanship-section {
+  #reenactment .craftmanship-section {
     background-position: center center;
   }
 }
 @media (min-width: 768px) {
-  #reanactment .craftmanship-section .content {
+  #reenactment .craftmanship-section .content {
     float: right;
     margin-right: 10%;
     text-align: right;
   }
 }
 @media (min-width: 768px) {
-  #reanactment .craftmanship-section .content {
+  #reenactment .craftmanship-section .content {
     width: 60%;
     padding-top: 14vh;
   }
 }
 @media (min-width: 980px) {
-  #reanactment .craftmanship-section .content {
+  #reenactment .craftmanship-section .content {
     width: 50%;
   }
 }
 @media (min-width: 1200px) {
-  #reanactment .craftmanship-section .content {
+  #reenactment .craftmanship-section .content {
     width: 40%;
   }
 }
-#reanactment .craftmanship-section .content h2 {
+#reenactment .craftmanship-section .content h2 {
   margin-bottom: 0;
   font-size: 6rem;
 }
-#reanactment .craftmanship-section .content h3 {
+#reenactment .craftmanship-section .content h3 {
   color: #FF5151;
   font-size: 3rem;
   margin-top: 0;
 }
-#reanactment .craftmanship-section .content p {
+#reenactment .craftmanship-section .content p {
   margin-top: 10vh;
   text-align: left;
 }
-#reanactment .craftmanship-section:after {
+#reenactment .craftmanship-section:after {
   content: " ";
   display: block;
   clear: both;
 }
-#reanactment .join-us-section {
+#reenactment .join-us-section {
   background-color: #000;
 }
-#reanactment .join-us-section .content {
+#reenactment .join-us-section .content {
   padding: 0 1.5rem;
   margin: 0;
   display: table;
   width: 100%;
   box-sizing: border-box;
 }
-#reanactment .join-us-section .content > div {
+#reenactment .join-us-section .content > div {
   padding: 0;
   padding-top: 15vh;
 }
 #hire-us .top-section {
   min-height: 100vh;
-  background: linear-gradient(to bottom, transparent 50%, black), url('../img/filming.jpg');
+  background: linear-gradient(to bottom, transparent 50%, black), url('../img/wollin_line.jpg');
   background-size: cover;
   background-position: center center;
   position: relative;
@@ -783,7 +788,7 @@ a {
   position: relative;
   z-index: -1;
   min-height: 100vh;
-  background: linear-gradient(to bottom, transparent 50%, black), url('../img/all-of-us.png');
+  background: linear-gradient(to bottom, transparent 50%, black), url('../img/skane_banner.jpg');
   background-size: cover;
   background-position: center center;
 }

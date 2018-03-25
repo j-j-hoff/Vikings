@@ -11,10 +11,10 @@ fs.writeFile('public/index.html', routes.start(), function (err) {
   console.log('Wrote start.html');
 });
 
-fs.writeFile('public/reanactment.html', routes.reanactment(), function (err) {
+fs.writeFile('public/reenactment.html', routes.reanactment(), function (err) {
   if (err) 
       return console.log(err);
-  console.log('Wrote reanactment.html');
+  console.log('Wrote reenactment.html');
 });
 
 fs.writeFile('public/hire-us.html', routes.hireUs(), function (err) {
