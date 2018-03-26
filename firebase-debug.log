@@ -1,0 +1,35 @@
+[debug] [2018-03-25T17:49:23.333Z] ----------------------------------------------------------------------
+[debug] [2018-03-25T17:49:23.335Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-03-25T17:49:23.335Z] CLI Version:   3.17.4
+[debug] [2018-03-25T17:49:23.335Z] Platform:      darwin
+[debug] [2018-03-25T17:49:23.335Z] Node Version:  v8.9.4
+[debug] [2018-03-25T17:49:23.336Z] Time:          Sun Mar 25 2018 19:49:23 GMT+0200 (CEST)
+[debug] [2018-03-25T17:49:23.336Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-25T17:49:23.347Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-25T17:49:23.347Z] > authorizing via signed-in user
+[debug] [2018-03-25T17:49:23.348Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-03-25T17:49:23.349Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/F0GqQorvkqjm7RkqNSxMDLUuVfN2LbWaZSS6ZGQ17FY',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Mar 25 2018 19:49:23 GMT+0200 (CEST)
+[debug] [2018-03-25T17:49:23.623Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-25T17:49:23.656Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/vikings-87088  
+  
+ Sun Mar 25 2018 19:49:23 GMT+0200 (CEST)
+[debug] [2018-03-25T17:49:24.498Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-25T17:49:24.499Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/vikings-87088/tokens  
+  
+ Sun Mar 25 2018 19:49:24 GMT+0200 (CEST)
+[debug] [2018-03-25T17:49:25.185Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'vikings-87088'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing public directory for upload...
+[debug] [2018-03-25T17:49:27.062Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/vikings-87088/uploads/-L8TGrldylzpcBkBSuw1?fileCount=106&message=  
+  
+ Sun Mar 25 2018 19:49:27 GMT+0200 (CEST)

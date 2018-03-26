@@ -136,6 +136,11 @@ a {
 }
 @media (min-width: 1200px) {
   #start .reenactment-section .content {
+    width: 65%;
+  }
+}
+@media (min-width: 1500px) {
+  #start .reenactment-section .content {
     width: 50%;
   }
 }
@@ -217,7 +222,7 @@ a {
     width: 50%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
   #start .hire-us-section .content {
     width: 40%;
   }
@@ -332,6 +337,11 @@ a {
 }
 @media (min-width: 1200px) {
   #reenactment .vikings-section .content {
+    width: 65%;
+  }
+}
+@media (min-width: 1500px) {
+  #reenactment .vikings-section .content {
     width: 50%;
   }
 }
@@ -430,6 +440,11 @@ a {
 }
 @media (min-width: 1200px) {
   #reenactment .historical-section .content {
+    width: 65%;
+  }
+}
+@media (min-width: 1500px) {
+  #reenactment .historical-section .content {
     width: 50%;
   }
 }
@@ -510,7 +525,7 @@ a {
     width: 50%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
   #reenactment .fight-section .content {
     width: 40%;
   }
@@ -573,7 +588,7 @@ a {
     width: 50%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
   #reenactment .craftmanship-section .content {
     width: 40%;
   }
@@ -652,6 +667,11 @@ a {
   }
 }
 @media (min-width: 1200px) {
+  #hire-us .hire-section .content {
+    width: 65%;
+  }
+}
+@media (min-width: 1500px) {
   #hire-us .hire-section .content {
     width: 50%;
   }
@@ -828,6 +848,11 @@ a {
 }
 @media (min-width: 1200px) {
   #about .jomsborg-section .content {
+    width: 65%;
+  }
+}
+@media (min-width: 1500px) {
+  #about .jomsborg-section .content {
     width: 50%;
   }
 }
@@ -908,7 +933,7 @@ a {
     width: 50%;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
   #about .training-section .content {
     width: 40%;
   }
@@ -977,6 +1002,11 @@ a {
   }
 }
 @media (min-width: 1200px) {
+  #about .thanks-section .content {
+    width: 65%;
+  }
+}
+@media (min-width: 1500px) {
   #about .thanks-section .content {
     width: 50%;
   }
