@@ -1679,6 +1679,11 @@ footer:after {
   background-size: cover;
   background-position: center center;
 }
+@media (min-width: 980px) {
+  .image-slider .images .sliding-element .image.l-top-left {
+    background-position: top left;
+  }
+}
 .image-slider .images .sliding-element.animate {
   transition: transform ease-out;
 }
@@ -1762,6 +1767,7 @@ footer:after {
   background-color: rgba(41, 41, 41, 0.4);
   justify-content: center;
   align-items: center;
+  left: 0;
 }
 .video-component .video-overlay .close-video {
   height: 5rem;

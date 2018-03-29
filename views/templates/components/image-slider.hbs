@@ -4,7 +4,7 @@
     {{#each images}}
       <div class="sliding-element {{#ifCond @index 0}}active{{/ifCond}}">
         <div class="image-overlay"></div>
-        <div class="image" style="background-image:url({{this.url}});{{this.css}}"></div>
+        <div class="image {{this.classes}}" style="background-image:url({{this.url}});{{this.css}}"></div>
         {{#if this.isVideo}}
             {{> video video-id=this.video-id}}
         {{/if}}

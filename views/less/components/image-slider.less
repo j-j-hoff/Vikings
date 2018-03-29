@@ -26,6 +26,12 @@
         width: 100%;
         background-size: cover;
         background-position: center center;
+
+        &.l-top-left {
+          @media (min-width: @screen-m) {
+            background-position: top left;
+          }
+        }
       }
 
       &.animate {
