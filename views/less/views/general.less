@@ -35,11 +35,17 @@ h2 {
 
 @media (min-width: @screen-sm) {
   h1 {
-    font-size: 20rem;
+    font-size: 11rem;
   }
 
   h2{
     font-size: 8rem;
+  }
+}
+
+@media (min-width: @screen-l) {
+  h1 {
+    font-size: 20rem;
   }
 }
 
@@ -54,6 +60,8 @@ label,
 input, 
 textarea {
   color: @white;
+  font-family: 'Times';
+  font-weight: normal;
   font-size: 1.8rem;
   line-height: 1.4;
   @media (min-width: @screen-sm) {

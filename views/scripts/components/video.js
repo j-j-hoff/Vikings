@@ -5,18 +5,18 @@ function onYouTubeIframeAPIReady() {
   const videos = document.querySelectorAll('.video-component');
   if (!videos) return;
   if (!imageSliders) return;
-    imageSliders.forEach(imageSlider => {
-      const btnPrev = imageSlider.querySelector('.btnPrev');
-      const btnNext = imageSlider.querySelector('.btnPrev');
+    for (var i = 0; i < imageSliders.length; i++) {
+      const btnPrev = imageSliders[i].querySelector('.btnPrev');
+      const btnNext = imageSliders[i].querySelector('.btnNext');
       if (btnNext) btnNext.addEventListener('click', closeVideo);
       if (btnPrev) btnPrev.addEventListener('click', closeVideo);
-  });
-
-  videos.forEach(video => {
-    const videoElm = new videoPlayer(video);
-    video.querySelector('.video-play-icon').addEventListener('click', videoElm.showVideo);
-    video.querySelector('.close-video').addEventListener('click', videoElm.closeVideo);
-  });
+    }
+  
+    for (var i = 0; i < videos.length; i++) {
+      const videoElm = new videoPlayer(videos[i]);
+      videos[i].querySelector('.video-play-icon').addEventListener('click', videoElm.showVideo);
+      videos[i].querySelector('.close-video').addEventListener('click', videoElm.closeVideo);
+    }
 }
 
 const closeVideo = () => {

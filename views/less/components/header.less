@@ -3,6 +3,10 @@ header {
   width: 100%;
   background-color: @main-dark-faded;
 
+  @media (min-width: @screen-sm) {
+    display: flex;
+  }
+
   input[type=checkbox] {
     display: none;
 

@@ -1,6 +1,6 @@
 #start {
   .top-section {
-    .top-section('../img/main.png');
+    .top-section('../img/main.jpg');
 
     img {
       height: 6rem;
@@ -11,6 +11,10 @@
       right: 0;
       left: 0;
       margin: auto;
+
+      @media (min-width: @screen-sm) {
+        display: none;
+      }
 
       @keyframes jump {
         0%, 35%, 43%, 50%, 100% {
@@ -61,7 +65,8 @@
     }
 
     .content {
-      @media (min-width: @screen-l) {
+      
+      @media (min-width: @screen-m) {
         width: 40%;
         margin-left: 60%;
         text-align: left;
