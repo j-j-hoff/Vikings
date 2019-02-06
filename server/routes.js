@@ -48,6 +48,10 @@ const vikings = () => {
   return getView('vikings')();
 }
 
+const joinus = () => {
+  return getView('join')();
+}
+
 const error = () => {
   return getView('404')();
 }
@@ -58,5 +62,6 @@ module.exports = {
   hireUs,
   about,
   vikings,
+  joinus,
   error
 };
