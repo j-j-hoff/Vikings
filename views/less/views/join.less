@@ -1,6 +1,6 @@
 #join-us {
   .top-section{
-    .top-section('../img/wollin_line.jpg');
+    .top-section('../img/field-line.jpg');
     position: relative;
     z-index: -1;
     .content {
@@ -10,6 +10,34 @@
       h1,
       h2 {
         text-align: left;
+      }
+    }
+  }
+
+  .vikings-section {
+    .text-section();
+  }
+
+  .training-section {
+    .text-and-image-section('left', '../img/new_traning.jpg');
+  }
+
+  .image-slide-shows-section {
+    .image-section();
+  }
+
+  .contact-us-section {
+    background-color: @dark-dark;
+    .content {
+      padding: 0 1.5rem;
+      margin: 0;
+      display: table;
+      width: 100%;
+      box-sizing: border-box;
+
+      > div {
+        padding: 0;
+        padding-top: 15vh;
       }
     }
   }

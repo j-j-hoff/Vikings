@@ -41,7 +41,7 @@
 
   ul {
     padding-left: 0;
-    padding-top: 25vh;
+    padding-top: 20vh;
 
     @media (min-width: @screen-sm) {
       margin: 0 0 0 2rem;
@@ -55,7 +55,7 @@
         @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
         .fade-animation(fadeIn, 0.5s);
 
-        .delay(3);      
+        .delay(4);      
         .delay(@n, @i: 1) when (@i =< @n) {
           &:nth-child(@{i}) {
             @delay: (100ms + (@i * 110));
@@ -79,6 +79,7 @@
         margin: 0 2rem;
         font-size: 4rem;
         position: relative;
+
       }
 
       a {

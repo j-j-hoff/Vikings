@@ -4,15 +4,67 @@
     {{>header}}
     <section class="top-section">
       <div class="content">
-        <h1>The Vikings</h1>
-        <h2>Of Skåne Lag</h2>
+        <h1>Joins Us</h1>
+        <h2>Become a viking</h2>
       </div>
     </section>
     <section class="vikings-section">
       <div class="content">
-        
-
+        <img src="./img/viking-icon.svg"/>
+        <h3>Viking life</h3>
+        <p>A huge part of Skåne Lag's focus is the historically inspired competitive fighting, this is a full body contact sport with blunted steal weapons. Everyone is welcome to join the weekly practice, regardless of prior experiences.
+          The viking society is like a large family where everyone help and leran from each other. Join the community to explore a whole new world and gain new friends for life.
+        </p>
       </div>
+    </section>
+
+    <section class="training-section">
+      <div class="content">
+        <h2>Training</h2>
+        <h3>How to get started</h3>
+        <p>As a beginner you 
+          train together with an instructor in order to learn the basics before practicing with the whole group. Skåne Lag has a 
+          useful mentor system where everyone who want can choose a more experienced fighter to get extra help from. Together we 
+          aim to have a safe and fun atmosphere in the training hall. We train once a week, contact us if your're interested.
+          <br><br>Tusedays 19.00-21.00
+          <br><br>Stenkulaskolan, Malmö 
+        </p>
+      </div>
+    </section>
+
+    <section class="image-slide-shows-section">
+      {{>image-slider
+        images= '{
+        "images":[
+          { 
+            "url": "./img/mosegaard.jpg",
+            "heading":"Events",
+            "text": "With strengths from the gods we bring the old sagas and legends to life and arrange unforgettable shows and events. With humor when needed or as cruel warriors when the situation calls."
+          },
+          { 
+            "url": "./img/dinner.jpg", 
+            "heading":"Crafters",
+            "text": "Our exprienced crafters gladly share theire knowledge with anyone interested. We provide courses and workshops in dying fabric, metal work and many other historical craft techniques."
+          },
+          { 
+            "url": "./img/circle.jpg", 
+            "heading":"Encampments",
+            "text": "We can provide full viking encampment with merchants, warriors, entertainers, ctaftsmen and storytellers."
+          },
+          { 
+            "url": "./img/weekend.jpg", 
+            "heading":"Encampments",
+            "text": "We can provide full viking encampment with merchants, warriors, entertainers, ctaftsmen and storytellers."
+          }
+        ]}'
+      }}
+    </section>
+
+    <section class="contact-us-section">
+      {{>contact-form
+        h2='Contact us' 
+        h3="Become a viking"
+      }}
     </section>
     {{>footer}}
     {{>scripts}}
